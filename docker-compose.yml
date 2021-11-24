@@ -1,0 +1,16 @@
+version: '3'
+services:
+    ruby:
+        build:
+            context: .
+            dockerfile: docker/ruby/Dockerfile
+        ports:
+            - 80:9292
+        volumes:
+            - .:/app:rw
+            - data:/gems
+        env_file: docker/ruby/.env
+        container_name: la-mulana-tools
+
+volumes:
+    data:

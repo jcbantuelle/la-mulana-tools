@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# bundle check || bundle install
+bundle update
+
+cd /app
+
+# Copy Puma config to the dummy application
+cp docker/ruby/puma.rb config/
+
+# Create and Seed the database
+# bundle exec rake db:create
+# bundle exec rake db:migrate
+
+# Start Puma
+bundle exec puma -C config/puma.rb
