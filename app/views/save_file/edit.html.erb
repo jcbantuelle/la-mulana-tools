@@ -1,0 +1,7 @@
+<h1>Upload Your Save File</h1>
+
+<%= form_tag({action: :update}, multipart: true) do %>
+  <%= file_field_tag 'save_file' %>
+
+  <%= submit_tag "Submit" %>
+<% end %>
