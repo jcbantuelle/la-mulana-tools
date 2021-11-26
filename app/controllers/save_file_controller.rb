@@ -8,5 +8,24 @@ class SaveFileController < ApplicationController
   end
 
   def download
+    save_file = SaveFile.new(save_file_params)
+    send_data save_file.to_binary_s, filename: params[:file_name]
+  end
+
+  private
+
+  def save_file_params
+    params.permit(
+      :valid,
+      :game_time,
+      :zone,
+      :room,
+      :screen,
+      :x_position,
+      :y_position,
+      :max_hp,
+      :current_hp,
+      :current_exp
+    ).to_h.symbolize_keys.transform_values(&:to_i)
   end
 end
