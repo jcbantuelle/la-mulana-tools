@@ -3,8 +3,8 @@ class SaveFileController < ApplicationController
   end
 
   def update
-    file = File.open('/app/tmp/lm_0a.sav')
-    @save_file = SaveFile.read(file)
+    @save_file = SaveFile.read(params[:save_file])
+    @file_name = params[:save_file].original_filename
   end
 
   def download

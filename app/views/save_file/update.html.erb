@@ -1,10 +1,55 @@
 <h1>Modify Your Save File</h1>
-<p><strong>Game Time:</strong> <%= formatted_game_time(@save_file.game_time) %></p>
-<p><strong>Zone:</strong> <%= @save_file.zone %></p>
-<p><strong>Room:</strong> <%= @save_file.room %></p>
-<p><strong>Screen:</strong> <%= @save_file.screen %></p>
-<p><strong>X Position:</strong> <%= @save_file.x_position %></p>
-<p><strong>Y Position:</strong> <%= @save_file.y_position %></p>
-<p><strong>Max HP:</strong> <%= @save_file.max_hp * 32 %></p>
-<p><strong>Current HP:</strong> <%= @save_file.current_hp %></p>
-<p><strong>Current Exp:</strong> <%= @save_file.current_exp %></p>
+
+<%= form_with url: '/save_file/download', method: :post, html: {:target => '_blank'} do |form| %>
+  <%= form.hidden_field :file_name, value: @file_name %>
+  <%= form.hidden_field :valid, value: 1 %>
+  <p>
+    <%= form.label :game_time, 'Game Time:' %>
+    <%= form.text_field :game_time, value: @save_file.game_time %>
+  </p>
+  <p>
+    <%= form.label :zone, 'Zone:' %>
+    <%= form.text_field :zone, value: @save_file.zone %>
+  </p>
+  <p>
+    <%= form.label :room, 'Room:' %>
+    <%= form.text_field :room, value: @save_file.room %>
+  </p>
+  <p>
+    <%= form.label :screen, 'Screen:' %>
+    <%= form.text_field :screen, value: @save_file.screen %>
+  </p>
+  <p>
+    <%= form.label :x_position, 'X Position:' %>
+    <%= form.text_field :x_position, value: @save_file.x_position %>
+  </p>
+  <p>
+    <%= form.label :y_position, 'Y Position:' %>
+    <%= form.text_field :y_position, value: @save_file.y_position %>
+  </p>
+  <p>
+    <%= form.label :max_hp, 'Max HP:' %>
+    <%= form.text_field :max_hp, value: @save_file.max_hp %>
+  </p>
+  <p>
+    <%= form.label :current_hp, 'Current HP:' %>
+    <%= form.text_field :current_hp, value: @save_file.current_hp %>
+  </p>
+  <p>
+    <%= form.label :current_exp, 'Current EXP:' %>
+    <%= form.text_field :current_exp, value: @save_file.current_exp %>
+  </p>
+
+<p><strong>Flags:</strong> <%= @save_file.flags.snapshot.join(' | ') %></p>
+<p><strong>Inventory:</strong> <%= @save_file.inventory.snapshot.join(' | ') %></p>
+<p><strong>Held Main Weapon:</strong> <%= @save_file.held_main_weapon %></p>
+<p><strong>Held Sub Weapon:</strong> <%= @save_file.held_sub_weapon %></p>
+<p><strong>Held Use Item:</strong> <%= @save_file.held_use_item %></p>
+<p><strong>Held Main Weapon Slot:</strong> <%= @save_file.held_main_weapon_slot %></p>
+<p><strong>Held Sub Weapon Slot:</strong> <%= @save_file.held_sub_weapon_slot %></p>
+<p><strong>Held Use Item Slot:</strong> <%= @save_file.held_use_item_slot %></p>
+<p><strong>Total Emails:</strong> <%= @save_file.total_emails %></p>
+<p><strong>Received Emails:</strong> <%= @save_file.received_emails %></p>
+
+  <%= form.submit "Generate Modified Save File" %>
+<% end %>
