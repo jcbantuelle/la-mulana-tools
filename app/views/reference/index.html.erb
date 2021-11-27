@@ -2,6 +2,7 @@
   <div class="col-2 position-fixed">
     <nav class="nav-pills flex-column navbar-light bg-light">
       <a href="#zones" class="nav-link">Zones</a>
+      <a href="#flags" class="nav-link">Flags</a>
     </nav>
   </div>
   <div class="col offset-2">
@@ -22,6 +23,29 @@
             <td><%= zone[:name] %></td>
             <td><%= zone[:index] %></td>
             <td><%= zone[:index].to_s(16).upcase %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <h2 id="flags" class="text-muted">Flags</h2>
+    <table class="table table-bordered table-sm table-striped w-75">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Value (Dec)</th>
+          <th>Value (Hex)</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% FLAGS.each_with_index do |flag, index| %>
+          <% next if flag.nil? %>
+          <tr>
+            <td><%= flag[:name] %></td>
+            <td><%= index %></td>
+            <td><%= index.to_s(16).upcase %></td>
+            <td><%= flag[:options].map{|option| "#{option[0]} - #{option[1]}"}.join("<br />").html_safe %></td>
           </tr>
         <% end %>
       </tbody>
