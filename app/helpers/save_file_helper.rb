@@ -4,6 +4,6 @@ module SaveFileHelper
     seconds, milliseconds = game_time.divmod(1000)
     minutes, seconds = seconds.divmod(60)
     hours, minutes = minutes.divmod(60)
-    "#{hours}:#{minutes}:#{seconds}.#{milliseconds}"
+    "#{hours}h #{minutes}m #{seconds}.#{milliseconds.to_s.rjust(3, '0')}s"
   end
 end
