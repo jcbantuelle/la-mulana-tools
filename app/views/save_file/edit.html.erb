@@ -1,7 +1,15 @@
+<br />
 <h1>Upload Your Save File</h1>
-
 <%= form_with url: '/save_file/update', method: :post, multipart: true do |form| %>
-  <%= form.file_field :save_file %>
-
-  <%= form.submit "Load File" %>
+  <div class="row">
+    <div class="col-3">
+      <%= form.file_field :save_file, class:  "form-control" %>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-3">
+      <%= form.submit "Load File", class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>
