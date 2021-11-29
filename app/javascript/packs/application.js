@@ -11,6 +11,7 @@ import JQuery from "../src/jquery"
 global.$ = JQuery
 global.jQuery = JQuery
 import Bootstrap from "../src/bootstrap"
+global.bootstrap = Bootstrap
 import Underscore from "../src/underscore"
 global._ = Underscore
 

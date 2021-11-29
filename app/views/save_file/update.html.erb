@@ -76,21 +76,32 @@
           <%= form.text_field :current_exp, value: @save_file.current_exp, class: 'form-control' %>
         </div>
       </div>
-      <hr />
     </div>
-
-  <p><strong>Flags:</strong> <%= @save_file.flags.snapshot.join(' | ') %></p>
-  <p><strong>Inventory:</strong> <%= @save_file.inventory.snapshot.join(' | ') %></p>
-  <p><strong>Held Main Weapon:</strong> <%= @save_file.held_main_weapon %></p>
-  <p><strong>Held Sub Weapon:</strong> <%= @save_file.held_sub_weapon %></p>
-  <p><strong>Held Use Item:</strong> <%= @save_file.held_use_item %></p>
-  <p><strong>Held Main Weapon Slot:</strong> <%= @save_file.held_main_weapon_slot %></p>
-  <p><strong>Held Sub Weapon Slot:</strong> <%= @save_file.held_sub_weapon_slot %></p>
-  <p><strong>Held Use Item Slot:</strong> <%= @save_file.held_use_item_slot %></p>
-  <p><strong>Total Emails:</strong> <%= @save_file.total_emails %></p>
-  <p><strong>Received Emails:</strong> <%= @save_file.received_emails %></p>
-
-    <%= form.submit "Generate Modified Save File" %>
+    <br />
+    <div class="row" id="flag-container">
+      <h2 class="text-muted">Flags</h2>
+      <a href="/reference#flags" target="_blank" class="small">Reference Guide</a>
+      <br />
+      <hr />
+      <% @save_file[:flags].each_with_index do |flag, index| %>
+        <% flag_settings = FLAGS[index] %>
+        <% if flag_settings.nil? %>
+          <%= form.hidden_field "flags[#{index}]", value: flag %>
+        <% else %>
+          <div class="col-2">
+            <%= form.label index, "#{index} (Dec) / #{index.to_s(16)} (Hex)", class: 'form-label' %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-html="true" title="<%= flag_tooltip(flag_settings).html_safe %>">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <br />
+            <%= form.select "flags[#{index}]", flag_settings[:options].map{|option| option[0]}, selected: flag %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <br />
+    <%= form.submit "Generate Modified Save File", class: "btn btn-primary" %>
   <% end %>
 </div>
 
@@ -126,6 +137,10 @@
       let max_hp = parseInt($(this).val())
       if (isNaN(max_hp)) max_hp = 0
       $('#formatted-max-hp').text(max_hp * 32)
+    })
+
+    $('[data-bs-toggle="tooltip"]').each(function(index) {
+      new bootstrap.Tooltip(this)
     })
   })
 </script>
