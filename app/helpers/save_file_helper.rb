@@ -8,13 +8,17 @@ module SaveFileHelper
   end
 
   def flag_tooltip(flag)
-    options = flag[:options].map{ |option|
-      "<small>#{option[0]} - #{option[1]}</small>"
-    }
+    if flag[:options].present?
+      explanation = flag[:options].map{ |option|
+        "<small>#{option[0]} - #{option[1]}</small>"
+      }.join('<br />')
+    elsif flag[:range].present?
+      explanation = "Between #{flag[:range].min} & #{flag[:range].max}"
+    end
     %Q{
       <strong>#{flag[:name]}</strong>
       <br />
-      #{options.join('<br />')}
+      #{explanation}
     }
   end
 end
