@@ -58,7 +58,7 @@
     </div>
     <hr />
     <div class="col-2">
-      <%= form.label :game_time, 'Game Time:', class: "form-label" %> (<%= formatted_game_time(@save_file.game_time) %>)
+      <%= form.label :game_time, 'Game Time:', class: "form-label" %> (<span id="formatted-game-time"><%= formatted_game_time(@save_file.game_time) %></span>)
       <%= form.text_field :game_time, value: @save_file.game_time, class: "form-control" %>
     </div>
     <hr />
@@ -104,6 +104,18 @@
       $('#screen').val(option.data('screen'))
       $('#x_position').val(option.data('x_position'))
       $('#y_position').val(option.data('y_position'))
+    })
+
+    $('#game_time').keyup(function() {
+      let game_time = parseInt($(this).val())
+      // I hate Javascript so much
+      let milliseconds = game_time % 1000
+      let seconds = Math.floor(game_time / 1000)
+      let minutes = Math.floor(seconds / 60)
+      seconds = seconds % 60
+      let hours = Math.floor(minutes / 60)
+      minutes = minutes % 60
+      $('#formatted-game-time').text(hours + 'h ' + minutes + 'm ' + seconds + '.' + ('000' + milliseconds).slice(-3) + 's')
     })
   })
 </script>
