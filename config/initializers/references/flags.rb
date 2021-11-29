@@ -126,10 +126,13 @@ flags[117] = {
     [1, 'Active']
   ]
 }
+flags[119] = {
+  name: 'Coin Chests Opened Count',
+  range: 0..28
+}
 
 FLAGS = flags
 
-# <item id="byte-077" value="coin-chests" comments="28 to get luck fairy in the credits" />
 # <item id="byte-078" value="giltoriyo-ladder" comments="1=spoken 2,3=endless ladder" />
 # <item id="byte-079" value="mulbruk" comments="1=unsealed 2=wedjet 3=left after wedjet 4 blah blah doesn't really matter" />
 # <item id="byte-07a" value="alsedana-ladder" comments="1=talked 2,3=ladder" />
