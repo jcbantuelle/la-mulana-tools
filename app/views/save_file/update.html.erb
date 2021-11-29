@@ -55,25 +55,29 @@
           </div>
         </div>
       </div>
+      <hr />
+      <div class="row">
+        <div class="col">
+          <%= form.label :game_time, 'Game Time:', class: 'form-label' %> (<span id="formatted-game-time"><%= formatted_game_time(@save_file.game_time) %></span>)
+          <%= form.text_field :game_time, value: @save_file.game_time, class: 'form-control' %>
+        </div>
+        <div class="col">
+          <%= form.label :max_hp, 'Max HP:', class: 'form-label' %> (<span id="formatted-max-hp"><%= @save_file.max_hp * 32 %></span>)
+          <%= form.text_field :max_hp, value: @save_file.max_hp, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= form.label :current_hp, 'Current HP:', class: 'form-label' %>
+          <%= form.text_field :current_hp, value: @save_file.current_hp, class: 'form-control' %>
+        </div>
+        <div class="col">
+          <%= form.label :current_exp, 'Current EXP:', class: 'form-label' %>
+          <%= form.text_field :current_exp, value: @save_file.current_exp, class: 'form-control' %>
+        </div>
+      </div>
+      <hr />
     </div>
-    <hr />
-    <div class="col-2">
-      <%= form.label :game_time, 'Game Time:', class: "form-label" %> (<span id="formatted-game-time"><%= formatted_game_time(@save_file.game_time) %></span>)
-      <%= form.text_field :game_time, value: @save_file.game_time, class: "form-control" %>
-    </div>
-    <hr />
-    <p>
-      <%= form.label :max_hp, 'Max HP:' %>
-      <%= form.text_field :max_hp, value: @save_file.max_hp %>
-    </p>
-    <p>
-      <%= form.label :current_hp, 'Current HP:' %>
-      <%= form.text_field :current_hp, value: @save_file.current_hp %>
-    </p>
-    <p>
-      <%= form.label :current_exp, 'Current EXP:' %>
-      <%= form.text_field :current_exp, value: @save_file.current_exp %>
-    </p>
 
   <p><strong>Flags:</strong> <%= @save_file.flags.snapshot.join(' | ') %></p>
   <p><strong>Inventory:</strong> <%= @save_file.inventory.snapshot.join(' | ') %></p>
@@ -116,6 +120,12 @@
       let hours = Math.floor(minutes / 60)
       minutes = minutes % 60
       $('#formatted-game-time').text(hours + 'h ' + minutes + 'm ' + seconds + '.' + ('000' + milliseconds).slice(-3) + 's')
+    })
+
+    $('#max_hp').keyup(function() {
+      let max_hp = parseInt($(this).val())
+      if (isNaN(max_hp)) max_hp = 0
+      $('#formatted-max-hp').text(max_hp * 32)
     })
   })
 </script>
