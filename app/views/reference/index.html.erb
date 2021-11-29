@@ -45,7 +45,7 @@
             <td><%= flag[:name] %></td>
             <td><%= index %></td>
             <td><%= index.to_s(16).upcase %></td>
-            <td><%= flag[:options].map{|option| "#{option[0]} - #{option[1]}"}.join("<br />").html_safe %></td>
+            <td><%= setting_explanation(flag).html_safe %></td>
           </tr>
         <% end %>
       </tbody>

@@ -7,18 +7,21 @@ module SaveFileHelper
     "#{hours}h #{minutes}m #{seconds}.#{milliseconds.to_s.rjust(3, '0')}s"
   end
 
-  def flag_tooltip(flag)
-    if flag[:options].present?
-      explanation = flag[:options].map{ |option|
+  def save_file_tooltip(setting)
+    %Q{
+      <strong>#{setting[:name]}</strong>
+      <br />
+      #{setting_explanation(setting)}
+    }
+  end
+
+  def setting_explanation(setting)
+    if setting[:options].present?
+      setting[:options].map{ |option|
         "<small>#{option[0]} - #{option[1]}</small>"
       }.join('<br />')
-    elsif flag[:range].present?
-      explanation = "Between #{flag[:range].min} & #{flag[:range].max}"
+    elsif setting[:range].present?
+      "<small>Between #{setting[:range].min} & #{setting[:range].max}</small>"
     end
-    %Q{
-      <strong>#{flag[:name]}</strong>
-      <br />
-      #{explanation}
-    }
   end
 end
