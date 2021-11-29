@@ -1,55 +1,109 @@
 <h1>Modify Your Save File</h1>
 
-<%= form_with url: '/save_file/download', method: :post, html: {:target => '_blank'} do |form| %>
-  <%= form.hidden_field :file_name, value: @file_name %>
-  <%= form.hidden_field :valid, value: 1 %>
-  <p>
-    <%= form.label :game_time, 'Game Time:' %>
-    <%= form.text_field :game_time, value: @save_file.game_time %>
-  </p>
-  <p>
-    <%= form.label :zone, 'Zone:' %>
-    <%= form.text_field :zone, value: @save_file.zone %>
-  </p>
-  <p>
-    <%= form.label :room, 'Room:' %>
-    <%= form.text_field :room, value: @save_file.room %>
-  </p>
-  <p>
-    <%= form.label :screen, 'Screen:' %>
-    <%= form.text_field :screen, value: @save_file.screen %>
-  </p>
-  <p>
-    <%= form.label :x_position, 'X Position:' %>
-    <%= form.text_field :x_position, value: @save_file.x_position %>
-  </p>
-  <p>
-    <%= form.label :y_position, 'Y Position:' %>
-    <%= form.text_field :y_position, value: @save_file.y_position %>
-  </p>
-  <p>
-    <%= form.label :max_hp, 'Max HP:' %>
-    <%= form.text_field :max_hp, value: @save_file.max_hp %>
-  </p>
-  <p>
-    <%= form.label :current_hp, 'Current HP:' %>
-    <%= form.text_field :current_hp, value: @save_file.current_hp %>
-  </p>
-  <p>
-    <%= form.label :current_exp, 'Current EXP:' %>
-    <%= form.text_field :current_exp, value: @save_file.current_exp %>
-  </p>
+<div id="modify-save-file-form-container">
+  <%= form_with url: '/save_file/download', method: :post, html: {:target => '_blank'} do |form| %>
+    <%= form.hidden_field :file_name, value: @file_name %>
+    <%= form.hidden_field :valid, value: 1 %>
+    <div class="col-6">
+      <h2 class="text-muted">Starting Location</h2>
+      <div>
+        <%= form.radio_button :starting_location, "preset", checked: @starting_location.present? %>
+        <%= form.label :starting_location_preset, "Preset" %>
+        &nbsp;
+        <%= form.radio_button :starting_location, "custom", checked: @starting_location.nil? %>
+        <%= form.label :starting_location_custom, "Custom" %>
+      </div>
+      <br />
+      <div class="starting-location-container" id="preset-container" <%= 'style="display: none;"'.html_safe if @starting_location.nil? %>>
+        <%= form.select :preset,
+          @presets.map{ |preset|
+            [preset[:name], {
+              'data-zone': preset[:zone],
+              'data-room': preset[:room],
+              'data-screen': preset[:screen],
+              'data-x_position': preset[:x_position],
+              'data-y_position': preset[:y_position]
+            }]
+          },
+          selected: @starting_location.try(:[], :name),
+          include_blank: '- Select Preset -' %>
+      </div>
+      <div class="starting-location-container" id="custom-container" <%= 'style="display: none;"'.html_safe if @starting_location.present? %>>
+        <div class="row">
+          <div class="col">
+            <%= form.label :zone, 'Zone:', class: "form-label" %>
+            <%= form.text_field :zone, value: @save_file.zone, class: "form-control" %>
+          </div>
+          <div class="col">
+            <%= form.label :room, 'Room:', class: "form-label" %>
+            <%= form.text_field :room, value: @save_file.room, class: "form-control" %>
+          </div>
+          <div class="col">
+            <%= form.label :screen, 'Screen:', class: "form-label" %>
+            <%= form.text_field :screen, value: @save_file.screen, class: "form-control" %>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col">
+            <%= form.label :x_position, 'X Position:', class: "form-label" %>
+            <%= form.text_field :x_position, value: @save_file.x_position, class: "form-control" %>
+          </div>
+          <div class="col">
+            <%= form.label :y_position, 'Y Position:', class: "form-label" %>
+            <%= form.text_field :y_position, value: @save_file.y_position, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-2">
+      <%= form.label :game_time, 'Game Time:', class: "form-label" %> (<%= formatted_game_time(@save_file.game_time) %>)
+      <%= form.text_field :game_time, value: @save_file.game_time, class: "form-control" %>
+    </div>
+    <hr />
+    <p>
+      <%= form.label :max_hp, 'Max HP:' %>
+      <%= form.text_field :max_hp, value: @save_file.max_hp %>
+    </p>
+    <p>
+      <%= form.label :current_hp, 'Current HP:' %>
+      <%= form.text_field :current_hp, value: @save_file.current_hp %>
+    </p>
+    <p>
+      <%= form.label :current_exp, 'Current EXP:' %>
+      <%= form.text_field :current_exp, value: @save_file.current_exp %>
+    </p>
 
-<p><strong>Flags:</strong> <%= @save_file.flags.snapshot.join(' | ') %></p>
-<p><strong>Inventory:</strong> <%= @save_file.inventory.snapshot.join(' | ') %></p>
-<p><strong>Held Main Weapon:</strong> <%= @save_file.held_main_weapon %></p>
-<p><strong>Held Sub Weapon:</strong> <%= @save_file.held_sub_weapon %></p>
-<p><strong>Held Use Item:</strong> <%= @save_file.held_use_item %></p>
-<p><strong>Held Main Weapon Slot:</strong> <%= @save_file.held_main_weapon_slot %></p>
-<p><strong>Held Sub Weapon Slot:</strong> <%= @save_file.held_sub_weapon_slot %></p>
-<p><strong>Held Use Item Slot:</strong> <%= @save_file.held_use_item_slot %></p>
-<p><strong>Total Emails:</strong> <%= @save_file.total_emails %></p>
-<p><strong>Received Emails:</strong> <%= @save_file.received_emails %></p>
+  <p><strong>Flags:</strong> <%= @save_file.flags.snapshot.join(' | ') %></p>
+  <p><strong>Inventory:</strong> <%= @save_file.inventory.snapshot.join(' | ') %></p>
+  <p><strong>Held Main Weapon:</strong> <%= @save_file.held_main_weapon %></p>
+  <p><strong>Held Sub Weapon:</strong> <%= @save_file.held_sub_weapon %></p>
+  <p><strong>Held Use Item:</strong> <%= @save_file.held_use_item %></p>
+  <p><strong>Held Main Weapon Slot:</strong> <%= @save_file.held_main_weapon_slot %></p>
+  <p><strong>Held Sub Weapon Slot:</strong> <%= @save_file.held_sub_weapon_slot %></p>
+  <p><strong>Held Use Item Slot:</strong> <%= @save_file.held_use_item_slot %></p>
+  <p><strong>Total Emails:</strong> <%= @save_file.total_emails %></p>
+  <p><strong>Received Emails:</strong> <%= @save_file.received_emails %></p>
 
-  <%= form.submit "Generate Modified Save File" %>
-<% end %>
+    <%= form.submit "Generate Modified Save File" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $('input[type=radio][name=starting_location]').change(function() {
+      $('.starting-location-container').hide()
+      $('#'+this.value+'-container').show()
+    })
+
+    $('#preset').change(function() {
+      let option = $('option:selected', this)
+      $('#zone').val(option.data('zone'))
+      $('#room').val(option.data('room'))
+      $('#screen').val(option.data('screen'))
+      $('#x_position').val(option.data('x_position'))
+      $('#y_position').val(option.data('y_position'))
+    })
+  })
+</script>

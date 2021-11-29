@@ -4,7 +4,9 @@ class SaveFileController < ApplicationController
 
   def update
     @save_file = SaveFile.read(params[:save_file])
+    @starting_location = StartingLocationQuery.new(@save_file).find
     @file_name = params[:save_file].original_filename
+    @presets = StartingLocationPresetsQuery.new.all
   end
 
   def download

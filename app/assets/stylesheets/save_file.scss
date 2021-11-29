@@ -1,3 +1,10 @@
 // Place all the styles related to the SaveFile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#modify-save-file-form-container {
+  padding: 1.5rem;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  border: solid #dee2e6 1px;
+}
