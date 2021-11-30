@@ -1,5 +1,10 @@
 <br />
 <h1>Upload Your Save File</h1>
+<% flash.each do |type, msg| %>
+  <div class="<%= type %> <%= type %>-danger">
+    <%= msg %>
+  </div>
+<% end %>
 <%= form_with url: '/save_file/update', method: :post, multipart: true do |form| %>
   <div class="row">
     <div class="col-3">

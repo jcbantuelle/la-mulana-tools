@@ -3,6 +3,9 @@ class SaveFileController < ApplicationController
   end
 
   def update
+    if params[:save_file].nil?
+      redirect_to(save_file_edit_path, alert: "You must upload a save file to continue") and return
+    end
     @save_file = SaveFile.read(params[:save_file])
     @starting_location = StartingLocationQuery.new(@save_file).find
     @file_name = params[:save_file].original_filename
