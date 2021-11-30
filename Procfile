@@ -1,2 +1,2 @@
-web: bundle exec puma -C dokku/config/puma.rb
+web: bundle exec puma -C dokku/puma.rb
 worker: bundle exec rake jobs:work
