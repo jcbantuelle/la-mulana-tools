@@ -1,9 +1,7 @@
 <h1>Modify Your Save File</h1>
 
 <div id="modify-save-file-form-container">
-  <%= form_with url: '/save_file/download', method: :post, html: {:target => '_blank'} do |form| %>
-    <%= form.hidden_field :file_name, value: @file_name %>
-    <%= form.hidden_field :valid, value: 1 %>
+  <%= form_with url: '/save_file/download', method: :post do |form| %>
     <div class="col-6">
       <h2 class="text-muted">Starting Location</h2>
       <div>
@@ -132,7 +130,36 @@
       <% end %>
     </div>
     <br />
-    <%= form.submit "Generate Modified Save File", class: "btn btn-primary" %>
+    <%= form.hidden_field :file_name, value: @file_name %>
+    <%= form.hidden_field :valid, value: 1 %>
+    <% %i{held_main_weapon held_sub_weapon held_use_item held_main_weapon_slot held_sub_weapon_slot held_use_item_slot total_emails received_emails maps_owned_bit_array}.each do |form_field| %>
+      <%= form.hidden_field form_field, value: @save_file[form_field] %>
+    <% end %>
+    <% @save_file[:equipped_software].each_with_index do |software, index| %>
+      <%= form.hidden_field "equipped_software[#{index}]", value: software %>
+    <% end %>
+    <% @save_file[:rosettas_read].each_with_index do |rosetta, index| %>
+      <%= form.hidden_field "rosettas_read[#{index}]", value: rosetta %>
+    <% end %>
+    <% @save_file[:mantras_learned].each_with_index do |mantra, index| %>
+      <%= form.hidden_field "mantras_learned[#{index}]", value: mantra %>
+    <% end %>
+    <% @save_file[:emails].each_with_index do |email, index| %>
+      <%= form.hidden_field "emails[#{index}][screenplay_card]", value: email[:screenplay_card] %>
+      <%= form.hidden_field "emails[#{index}][game_time_received]", value: email[:game_time_received] %>
+      <%= form.hidden_field "emails[#{index}][mail_number]", value: email[:mail_number] %>
+    <% end %>
+    <% @save_file[:bunemon_records].each_with_index do |bunemon_record, index| %>
+      <%= form.hidden_field "bunemon_records[#{index}][slot_number]", value: bunemon_record[:slot_number] %>
+      <%= form.hidden_field "bunemon_records[#{index}][field_map_card]", value: bunemon_record[:field_map_card] %>
+      <%= form.hidden_field "bunemon_records[#{index}][field_map_record]", value: bunemon_record[:field_map_record] %>
+      <%= form.hidden_field "bunemon_records[#{index}][location_card]", value: bunemon_record[:location_card] %>
+      <%= form.hidden_field "bunemon_records[#{index}][location_record]", value: bunemon_record[:location_record] %>
+      <%= form.hidden_field "bunemon_records[#{index}][text_card]", value: bunemon_record[:text_card] %>
+      <%= form.hidden_field "bunemon_records[#{index}][text_record]", value: bunemon_record[:text_record] %>
+      <%= form.hidden_field "bunemon_records[#{index}][is_tablet]", value: bunemon_record[:is_tablet] %>
+    <% end %>
+    <%= form.submit "Generate Modified Save File", class: "btn btn-primary", data: {disable_with: false} %>
   <% end %>
 </div>
 
