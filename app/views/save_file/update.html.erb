@@ -78,56 +78,80 @@
     <br />
     <div class="row" id="flag-container">
       <h2 class="text-muted">Flags</h2>
-      <a href="/reference#flags" target="_blank" class="small">Reference Guide</a>
+      <div>
+        <%= form.radio_button :flag_format, "dec", checked: true %>
+        <%= form.label :flag_format_dec, "Decimal" %>
+        &nbsp;
+        <%= form.radio_button :flag_format, "hex" %>
+        <%= form.label :flag_format_hex, "Hexadecimal" %>
+      </div>
       <br />
       <hr />
-      <% @save_file[:flags].each_with_index do |flag, index| %>
-        <% flag_settings = FLAGS[index] %>
-        <% if flag_settings.nil? %>
-          <%= form.hidden_field "flags[#{index}]", value: flag %>
-        <% else %>
-          <div class="col-2">
-            <%= form.label "flags[#{index}]", "#{index} (Dec) / #{index.to_s(16).upcase} (Hex)", class: 'form-label' %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-html="true" title="<%= save_file_tooltip(flag_settings).html_safe %>">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-            </svg>
-            <br />
-            <% if flag_settings[:options].present? %>
-              <%= form.select "flags[#{index}]", flag_settings[:options].map{|option| option[0]}, selected: flag %>
-            <% elsif flag_settings[:range].present? %>
-              <%= form.number_field "flags[#{index}]", in: flag_settings[:range], step: 1, value: flag, class: 'form-control' %>
+      <table class="table table-bordered table-sm table-striped">
+        <tbody>
+          <% @save_file[:flags].each_with_index do |flag, index| %>
+            <% flag_settings = FLAGS[index] %>
+            <% if flag_settings.nil? %>
+              <%= form.hidden_field "flags[#{index}]", value: flag %>
+            <% else %>
+              <tr>
+                <td>
+                  <span class="flag-dec"><%= index %></span>
+                  <span class="flag-hex" style="display: none;"><%= index.to_s(16).upcase %></span>
+                </td>
+                <td>
+                  <%= form.label "flags[#{index}]", FLAGS[index][:name], class: 'form-input' %>
+                </td>
+                <td>
+                  <%= form.number_field "flags[#{index}]", in: -127..127, step: 1, value: flag, class: 'form-control' %>
+                </td>
+                <td>
+                  <%= FLAGS[index][:notes] %>
+                </td>
+              </tr>
             <% end %>
-          </div>
-        <% end %>
-      <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
     <br />
     <div class="row" id="inventory-container">
       <h2 class="text-muted">Inventory</h2>
-      <a href="/reference#inventory" target="_blank" class="small">Reference Guide</a>
+      <div>
+        <%= form.radio_button :inventory_format, "dec", checked: true %>
+        <%= form.label :inventory_format_dec, "Decimal" %>
+        &nbsp;
+        <%= form.radio_button :inventory_format, "hex" %>
+        <%= form.label :inventory_format_hex, "Hexadecimal" %>
+      </div>
       <br />
       <hr />
-      <% @save_file[:inventory].each_with_index do |item, index| %>
-        <% inventory_settings = INVENTORY[index] %>
-        <% if inventory_settings.nil? %>
-          <%= form.hidden_field "inventory[#{index}]", value: item %>
-        <% else %>
-          <div class="col-2">
-            <%= form.label "inventory[#{index}]", "#{index} (Dec) / #{index.to_s(16).upcase} (Hex)", class: 'form-label' %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-html="true" title="<%= save_file_tooltip(inventory_settings).html_safe %>">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-            </svg>
-            <br />
-            <% if inventory_settings[:options].present? %>
-              <%= form.select "inventory[#{index}]", inventory_settings[:options].map{|option| option[0]}, selected: item %>
-            <% elsif inventory_settings[:range].present? %>
-              <%= form.number_field "inventory[#{index}]", in: inventory_settings[:range], step: 1, value: item, class: 'form-control' %>
+      <table class="table table-bordered table-sm table-striped">
+        <tbody>
+          <% @save_file[:inventory].each_with_index do |item, index| %>
+            <% inventory_settings = INVENTORY[index] %>
+            <% if inventory_settings.nil? %>
+              <%= form.hidden_field "inventory[#{index}]", value: item %>
+            <% else %>
+              <tr>
+                <td>
+                  <span class="inventory-dec"><%= index %></span>
+                  <span class="inventory-hex" style="display: none;"><%= index.to_s(16).upcase %></span>
+                </td>
+                <td>
+                  <%= form.label "inventory[#{index}]", INVENTORY[index][:name], class: 'form-input' %>
+                </td>
+                <td>
+                  <%= form.number_field "inventory[#{index}]", in: -32767..32767, step: 1, value: item, class: 'form-control' %>
+                </td>
+                <td>
+                  <%= INVENTORY[index][:notes] %>
+                </td>
+              </tr>
             <% end %>
-          </div>
-        <% end %>
-      <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
     <br />
     <%= form.hidden_field :file_name, value: @file_name %>
@@ -168,6 +192,16 @@
     $('input[type=radio][name=starting_location]').change(function() {
       $('.starting-location-container').hide()
       $('#'+this.value+'-container').show()
+    })
+
+    $('input[type=radio][name=flag_format]').change(function() {
+      $('.flag-dec, .flag-hex').hide()
+      $('.flag-' + $(this).val()).show()
+    })
+
+    $('input[type=radio][name=inventory_format]').change(function() {
+      $('.inventory-dec, .inventory-hex').hide()
+      $('.inventory-' + $(this).val()).show()
     })
 
     $('#preset').change(function() {

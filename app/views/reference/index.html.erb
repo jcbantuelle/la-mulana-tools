@@ -36,7 +36,7 @@
           <th>Name</th>
           <th>Value (Dec)</th>
           <th>Value (Hex)</th>
-          <th>Options</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +46,7 @@
             <td><%= flag[:name] %></td>
             <td><%= index %></td>
             <td><%= index.to_s(16).upcase %></td>
-            <td><%= setting_explanation(flag).html_safe %></td>
+            <td><%= flag[:notes].html_safe unless flag[:notes].nil? %></td>
           </tr>
         <% end %>
       </tbody>
@@ -59,7 +59,7 @@
           <th>Name</th>
           <th>Value (Dec)</th>
           <th>Value (Hex)</th>
-          <th>Options</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
@@ -69,7 +69,7 @@
             <td><%= item[:name] %></td>
             <td><%= index %></td>
             <td><%= index.to_s(16).upcase %></td>
-            <td><%= setting_explanation(item).html_safe %></td>
+            <td><%= item[:notes].html_safe unless item[:notes].nil? %></td>
           </tr>
         <% end %>
       </tbody>
