@@ -1,144 +1,41 @@
-inventory = Array.new(255)
-
-inventory[1] = {
-  name: 'Chain Whip',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[2] = {
-  name: 'Flail Whip',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[3] = {
-  name: 'Knife',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[4] = {
-  name: 'Key Sword',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[5] = {
-  name: 'Axe',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[6] = {
-  name: 'Katana',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[7] = {
-  name: 'Empowered Key Sword',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[7] = {
-  name: 'Empowered Key Sword',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[8] = {
-  name: 'Shurikens',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[9] = {
-  name: 'Rolling Shurikens',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[10] = {
-  name: 'Earth Spears',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[11] = {
-  name: 'Flares',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[12] = {
-  name: 'Bombs',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[13] = {
-  name: 'Chakrams',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[14] = {
-  name: 'Caltrops',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[15] = {
-  name: 'Pistol',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[16] = {
-  name: 'Buckler',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[17] = {
-  name: 'Silver Shield',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[18] = {
-  name: 'Angel Shield',
-  options: [
-    [0, 'No'],
-    [1, 'Yes']
-  ]
-}
-inventory[19] = {
-  name: 'Ankh Jewels',
-  range: 0..9
-}
-
-INVENTORY = inventory
+inventory1:
+  name: 'Chain Whip'
+inventory2:
+  name: 'Flail Whip'
+inventory3:
+  name: 'Knife'
+inventory4:
+  name: 'Key Sword'
+inventory5:
+  name: 'Axe'
+inventory6:
+  name: 'Katana'
+inventory7:
+  name: 'Empowered Key Sword'
+inventory8:
+  name: 'Shurikens'
+inventory9:
+  name: 'Rolling Shurikens'
+inventory10:
+  name: 'Earth Spears'
+inventory11:
+  name: 'Flare Gun'
+inventory12:
+  name: 'Bombs'
+inventory13:
+  name: 'Chakrams'
+inventory14:
+  name: 'Caltrops'
+inventory15:
+  name: 'Pistol'
+inventory16:
+  name: 'Buckler'
+inventory17:
+  name: 'Silver Shield'
+inventory18:
+  name: 'Angel Shield'
+inventory19:
+  name: 'Ankh Jewel'
 
 #   <item id="word-014" value="invus-scanner" />
 #   <item id="word-015" value="invus-pillar" />

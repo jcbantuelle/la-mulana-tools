@@ -1,137 +1,42 @@
-flags = Array.new(4096)
-
-flags[100] = {
-  name: 'Gate of Guidance Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[101] = {
-  name: 'Mausoleum of the Giants Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[102] = {
-  name: 'Temple of the Sun Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[103] = {
-  name: 'Spring in the Sky Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[104] = {
-  name: 'Inferno Caverns Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[105] = {
-  name: 'Chamber of Extinction Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[106] = {
-  name: 'Twin Labyrinths (Front) Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[107] = {
-  name: 'Endless Corridor Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[108] = {
-  name: 'Shrine of the Mother Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[109] = {
-  name: 'Gate of Illusion Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[110] = {
-  name: 'Graveyard of the Giants Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[111] = {
-  name: 'Temple of Moonlight Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[112] = {
-  name: 'Tower of the Goddess Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[113] = {
-  name: 'Tower of Ruin Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[114] = {
-  name: 'Chamber of Birth Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[115] = {
-  name: 'Twin Labyrinths (Back) Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[116] = {
-  name: 'Dimensional Corridor Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[117] = {
-  name: 'True Shrine of the Mother Grail Tablet',
-  options: [
-    [0, 'Inactive'],
-    [1, 'Active']
-  ]
-}
-flags[119] = {
-  name: 'Coin Chests Opened Count',
-  range: 0..28
-}
-
-FLAGS = flags
+flags100:
+  name: 'Gate of Guidance Grail Tablet'
+flags101:
+  name: 'Mausoleum of the Giants Grail Tablet'
+flags102:
+  name: 'Temple of the Sun Grail Tablet'
+flags103:
+  name: 'Spring in the Sky Grail Tablet'
+flags104:
+  name: 'Inferno Caverns Grail Tablet'
+flags105:
+  name: 'Chamber of Extinction Grail Tablet'
+flags106:
+  name: 'Twin Labyrinths (Front) Grail Tablet'
+flags107:
+  name: 'Endless Corridor Grail Tablet'
+flags108:
+  name: 'Shrine of the Mother Grail Tablet'
+flags109:
+  name: 'Gate of Illusion Grail Tablet'
+flags110:
+  name: 'Graveyard of the Giants Grail Tablet'
+flags111:
+  name: 'Temple of Moonlight Grail Tablet'
+flags112:
+  name: 'Tower of the Goddess Grail Tablet'
+flags113:
+  name: 'Tower of Ruin Grail Tablet'
+flags114:
+  name: 'Chamber of Birth Grail Tablet'
+flags115:
+  name: 'Twin Labyrinths (Back) Grail Tablet'
+flags116:
+  name: 'Dimensional Corridor Grail Tablet'
+flags117:
+  name: 'True Shrine of the Mother Grail Tablet'
+flags119:
+  name: 'Coin Chests Opened'
+  notes: '28 to get luck fairy in the credits'
 
 # <item id="byte-078" value="giltoriyo-ladder" comments="1=spoken 2,3=endless ladder" />
 # <item id="byte-079" value="mulbruk" comments="1=unsealed 2=wedjet 3=left after wedjet 4 blah blah doesn't really matter" />
