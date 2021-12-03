@@ -168,153 +168,158 @@ flags179:
   name: 'Anchor Obtained'
 flags180:
   name: 'Plane Model Obtained'
-  notes: 'Triggers Goddess Statue Effects'
+  notes: 'Triggers Goddess Statue effects'
 flags181:
   name: "Philosophers' Ocarina Obtained"
   notes: 'Awakens Philosophers'
 flags182:
   name: 'Feather Obtained'
 flags184:
-  name: "w-clothes"
+  name: "Fairy Clothes Obtained"
 flags185:
-  name: "w-scriptures"
+  name: "Scriptures Obtained"
 flags186:
-  name: "w-hermes"
+  name: "Hermes' Boots Obtained"
 flags187:
-  name: "w-fruit"
+  name: "Fruit of Eden Obtained"
+  notes: 'Spawns Eden pedestal'
 flags188:
-  name: "w-twin-statue"
+  name: "Twin Statue Obtained"
+  notes: 'Activates Twin Labyrinths doors'
 flags189:
-  name: "w-bracelet"
+  name: "Bracelet Obtained"
 flags190:
-  name: "w-perfume"
+  name: "Perfume Obtained"
 flags191:
-  name: "w-spaulder"
+  name: "Spaulder Obtained"
 flags192:
-  name: "w-dimension-key"
+  name: "Dimensional Key Obtained"
+  notes: 'Prevents Dimensional Corridor bosses from respawning'
 flags193:
-  name: "w-icecape"
+  name: "Ice Cape Obtained"
 flags194:
-  name: "w-seal1"
+  name: "Origin Seal (1) Obtained"
 flags195:
-  name: "w-seal2"
+  name: "Birth Seal (2) Obtained"
 flags196:
-  name: "w-seal3"
+  name: "Life Seal (3) Obtained"
 flags197:
-  name: "w-seal4"
+  name: "Death Seal (4) Obtained"
 flags198:
-  name: "w-treasure-life?"
+  name: "Secret Treasure of Life Obtained"
 flags199:
-  name: "w-orb-guidance"
+  name: "Gate of Guidance Sacred Orb Obtained"
 flags200:
-  name: "w-orb-surface"
+  name: "Surface Sacred Orb Obtained"
 flags201:
-  name: "w-orb-maus"
+  name: "Mausoleum of the Giants Sacred Orb Obtained"
 flags202:
-  name: "w-orb-sun"
+  name: "Temple of the Sun Sacred Orb Obtained"
 flags203:
-  name: "w-orb-spring"
+  name: "Spring in the Sky Sacred Orb Obtained"
 flags204:
-  name: "w-orb-extinct"
+  name: "Chamber of Extinction Sacred Orb Obtained"
 flags205:
-  name: "w-orb-twins"
+  name: "Twin Labyrinths Sacred Orb Obtained"
 flags206:
-  name: "w-orb-shrine"
+  name: "Shrine of the Mother Sacred Orb Obtained"
 flags207:
-  name: "w-orb-ruin"
+  name: "Tower of Ruin Sacred Orb Obtained"
 flags208:
-  name: "w-orb-dimension"
+  name: "Dimensional Corridor Sacred Orb Obtained"
 flags209:
-  name: "w-map-surface"
+  name: "Surface Map Obtained"
 flags210:
-  name: "w-map-guidance"
+  name: "Gate of Guidance Map Obtained"
 flags211:
-  name: "w-map-maus"
+  name: "Mausoleum of the Giants Map Obtained"
 flags212:
-  name: "w-map-sun"
+  name: "Temple of the Sun Map Obtained"
 flags213:
-  name: "w-map-spring"
+  name: "Spring in the Sky Map Obtained"
 flags214:
-  name: "w-map-inferno"
+  name: "Inferno Caverns Map Obtained"
 flags215:
-  name: "w-map-extinct"
+  name: "Chamber of Extinction Map Obtained"
 flags216:
-  name: "w-map-twins"
+  name: "Twin Labyrinths Map Obtained"
 flags217:
-  name: "w-map-endless"
+  name: "Endless Corridor Map Obtained"
 flags218:
-  name: "w-map-shrine"
+  name: "Shrine of the Mother Map Obtained"
 flags219:
-  name: "w-map-illusion"
+  name: "Gate of Illusion Map Obtained"
 flags220:
-  name: "w-map-grave"
+  name: "Graveyard of the Giants Map Obtained"
 flags221:
-  name: "w-map-moon"
+  name: "Temple of Moonlight Map Obtained"
 flags222:
-  name: "w-map-goddess"
+  name: "Tower of the Goddess Map Obtained"
 flags223:
-  name: "w-map-ruins"
+  name: "Tower of Ruin Map Obtained"
 flags224:
-  name: "w-map-birth"
+  name: "Chamber of Birth Map Obtained"
 flags225:
-  name: "w-map-dimensional"
+  name: "Dimensional Corridor Map Obtained"
 flags226:
-  name: "w-reader"
+  name: "Glyph Reader (reader.exe) Obtained"
 flags227:
-  name: "w-xmailer"
+  name: "Xelpud Mailer (xmailer.exe) Obtained"
 flags228:
-  name: "w-yagomap"
+  name: "Yagoo Map Reader (yagomap.exe) Obtained"
 flags229:
-  name: "w-yagostr"
+  name: "Yagoo Map Street (yagostr.exe) Obtained"
 flags230:
-  name: "w-bunemon"
+  name: "TextTrax (bunemon.exe) Obtained"
 flags231:
-  name: "w-bunplus?"
+  name: "Additional Text Memory (bunplus.exe) Obtained"
 flags232:
-  name: "w-torude"
+  name: "Snapshots (torude.exe) Obtained"
 flags233:
-  name: "w-guild"
+  name: "Guild (guild.exe) Obtained"
 flags234:
-  name: "w-mantra"
+  name: "Mantra (mantra.exe) Obtained"
 flags235:
-  name: "w-emusic"
+  name: "Enga Musica (emusic.exe) Obtained"
 flags236:
-  name: "w-beolamu"
+  name: "Beo La-Mulana (beolamu.exe) Obtained"
+flags237:
+  name: "Death Village (deathv.exe) Obtained"
 flags238:
-  name: "w-randc"
+  name: "Rose and Camellia (randc.exe) Obtained"
 flags239:
-  name: "w-capstar"
+  name: "Space Capster II (capstar.exe) Obtained"
 flags240:
-  name: "w-move"
+  name: "Lonely Moving House (move.exe) Obtained"
 flags241:
-  name: "w-mekuri"
+  name: "Mekuri Master (mekuri.exe) Obtained"
 flags242:
-  name: "w-bounce?"
+  name: "Bounce Shot (bounce.exe) Obtained"
 flags243:
-  name: "w-miracle"
+  name: "Miracle Witch (miracle.exe) Obtained"
 flags244:
-  name: "w-mirai"
+  name: "Future Development Company (mirai.exe) Obtained"
 flags245:
-  name: "w-lamulana"
+  name: "La-Mulana (lamulana.exe) Obtained"
 flags246:
-  name: "amphisbaena"
+  name: "Amphisbaena"
 flags247:
-  name: "sakit"
+  name: "Sakit"
 flags248:
-  name: "ellmac"
+  name: "Ellmac"
 flags249:
-  name: "bahamut"
+  name: "Bahamut"
 flags250:
-  name: "viy"
+  name: "Viy"
 flags251:
-  name: "palenque"
+  name: "Palenque"
 flags252:
-  name: "baphomet"
+  name: "Baphomet"
 flags253:
-  name: "tiamat"
+  name: "Tiamat"
 flags254:
-  name: "mother"
-  notes: "unlike other guardians, no 1 state for ankh, just skips to 2"
+  name: "Mother"
+  notes: "Unlike other guardians, no 1 state for ankh, just skips to 2"
 flags255:
   name: "pots-0ff-gui"
 flags256:
