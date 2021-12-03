@@ -103,7 +103,7 @@
                   <%= form.label "flags[#{index}]", FLAGS[index][:name], class: 'form-input' %>
                 </td>
                 <td>
-                  <%= form.number_field "flags[#{index}]", in: -127..127, step: 1, value: flag, class: 'form-control' %>
+                  <%= form.number_field "flags[#{index}]", in: -128..127, step: 1, value: flag, class: 'form-control', style: 'width: 80px;' %>
                 </td>
                 <td>
                   <%= FLAGS[index][:notes] %>
@@ -142,7 +142,7 @@
                   <%= form.label "inventory[#{index}]", INVENTORY[index][:name], class: 'form-input' %>
                 </td>
                 <td>
-                  <%= form.number_field "inventory[#{index}]", in: -32767..32767, step: 1, value: item, class: 'form-control' %>
+                  <%= form.number_field "inventory[#{index}]", in: -32768..32767, step: 1, value: item, class: 'form-control', style: 'width: 100px;' %>
                 </td>
                 <td>
                   <%= INVENTORY[index][:notes] %>
