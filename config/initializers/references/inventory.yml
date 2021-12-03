@@ -37,197 +37,188 @@ inventory18:
 inventory19:
   name: 'Ankh Jewel'
 inventory20:
-  name: "invus-scanner"
+  name: "Hand Scanner"
 inventory21:
-  name: "invus-pillar"
+  name: "Djed Pillar"
 inventory22:
-  name: "invus-doll"
+  name: "Mini Doll"
 inventory23:
-  name: "invus-magatama"
+  name: "Magatama Jewel"
 inventory24:
-  name: "invus-cog"
+  name: "Cog of the Soul"
 inventory25:
-  name: "invus-lamp-lit"
+  name: "Lit Lamp of Time"
 inventory26:
-  name: "invus-pochette"
+  name: "Pochette Key"
 inventory27:
-  name: "invus-dragonb"
+  name: "Dragon Bone"
 inventory28:
-  name: "invus-cskull"
+  name: "Crystal Skull"
 inventory29:
-  name: "invus-vessel"
+  name: "Vessel"
 inventory30:
-  name: "invus-pepper"
+  name: "Pepper"
 inventory31:
-  name: "invus-woman"
+  name: "Woman Statue"
 inventory32:
-  name: "invus-endless-key"
+  name: "Key of Eternity"
 inventory33:
-  name: "invus-serpent"
+  name: "Serpent Staff"
 inventory34:
-  name: "invus-talisman"
-inventory35:
-  name: "inv-mystery-23"
+  name: "Talisman"
 inventory36:
-  name: "invtr-water-case"
+  name: "Waterproof Case"
 inventory37:
-  name: "invtr-heat-case"
+  name: "Heatproof Case"
 inventory38:
-  name: "invtr-shell-horn"
+  name: "Shell Horn"
 inventory39:
-  name: "invtr-glove"
+  name: "Glove"
 inventory40:
-  name: "invtr-grail"
+  name: "Holy Grail"
 inventory41:
-  name: "invtr-isispendant"
+  name: "Isis' Pendant"
 inventory42:
-  name: "invtr-crucifix"
+  name: "Crucifix"
 inventory43:
-  name: "invtr-helmet"
+  name: "Helment"
 inventory44:
-  name: "invtr-grapple"
+  name: "Grapple Claw"
 inventory45:
-  name: "invtr-mirror"
+  name: "Bronze Mirror"
 inventory46:
-  name: "invtr-eye-truth"
+  name: "Eye of Truth"
 inventory47:
-  name: "invtr-ring"
+  name: "Ring"
 inventory48:
-  name: "invtr-scale"
+  name: "Scalesphere"
 inventory49:
-  name: "invtr-gauntlet"
+  name: "Gauntlet"
 inventory50:
-  name: "invtr-anchor"
+  name: "Anchor"
 inventory51:
-  name: "invtr-plane"
+  name: "Plane Model"
 inventory52:
-  name: "invtr-ocarina"
+  name: "Philosophers' Ocarina"
 inventory53:
-  name: "invtr-feather"
+  name: "Feather"
 inventory54:
-  name: "invtr-book"
+  name: "Book of the Dead"
 inventory55:
-  name: "invtr-clothes"
+  name: "Fairy Clothes"
 inventory56:
-  name: "invtr-scriptures"
+  name: "Scriptures"
 inventory57:
-  name: "invtr-hermes"
+  name: "Hermes' Boots"
 inventory58:
-  name: "invtr-fruit"
+  name: "Fruit of Eden"
 inventory59:
-  name: "invtr-twin-statue"
+  name: "Twin Statue"
 inventory60:
-  name: "invtr-bracelet"
+  name: "Bracelet"
 inventory61:
-  name: "invtr-perfume"
+  name: "Perfume"
 inventory62:
-  name: "invtr-spaulder"
+  name: "Spauler"
 inventory63:
-  name: "invtr-dimension-key"
+  name: "Dimensional Key"
 inventory64:
-  name: "invtr-icecape"
+  name: "Ice Cape"
 inventory65:
-  name: "invseal-1"
+  name: "Originl Seal (1)"
 inventory66:
-  name: "invseal-2"
+  name: "Birth Seal (2)"
 inventory67:
-  name: "invseal-3"
+  name: "Life Seal (3)"
 inventory68:
-  name: "invseal-4"
-inventory69:
-  name: "inv-sacredorb"
-  notes: "only set briefly on collecting one, internally causes an increase in max hp and a refill"
-inventory70:
-  name: "maps"
+  name: "Death Seal (4)"
 inventory71:
-  name: "invtr-treasures"
+  name: "Treasures"
 inventory72:
-  name: "invus-diary"
+  name: "Diary"
 inventory73:
-  name: "invus-lamulana"
+  name: "Mulana Talisman"
 inventory74:
-  name: "inv-forbidden"
+  name: "Provocative Bathing Suit"
 inventory75:
-  name: "invus-shield-fake"
+  name: "Silver Shield (Fake)"
 inventory76:
-  name: "invtr-msx2"
+  name: "MSX2"
 inventory77:
-  name: "invus-medicine"
+  name: "Medicine (Yellow)"
 inventory78:
-  name: "invus-medicineg"
+  name: "Medicine (Green)"
 inventory79:
-  name: "invus-mediciner"
+  name: "Medicine (Red)"
 inventory80:
-  name: "invus-lamp-unlit"
+  name: "Unlit Lamp of Time"
 inventory81:
-  name: "invus-maternity"
+  name: "Maternity Statue"
 inventory82:
-  name: "invtr-grailbr"
+  name: "Holy Grail (Broken)"
 inventory83:
-  name: "invtr-grailfull"
+  name: "Holy Grail (Full)"
 inventory84:
-  name: "invtr-secrettroflife"
+  name: "Secret Treasure of Life"
 inventory85:
-  name: "invsf-reader"
+  name: "Glyph Reader (reader.exe)"
 inventory86:
-  name: "invsf-xmailer"
+  name: "Xelpud Mailer (xmailer.exe)"
 inventory87:
-  name: "invsf-yagomap"
+  name: "Yagoo Map Reader (yagomap.exe)"
 inventory88:
-  name: "invsf-yagostr"
+  name: "Yagoo Map Street (yagostr.exe)"
 inventory89:
-  name: "invsf-bunemon"
+  name: "TextTrax (bunemon.exe)"
 inventory90:
-  name: "invsf-bunplus"
+  name: "Additional Text Memory (bunplus.exe)"
 inventory91:
-  name: "invsf-torude"
+  name: "Snapshots (torude.exe)"
 inventory92:
-  name: "invsf-guild"
+  name: "Guild (guild.exe)"
 inventory93:
-  name: "invsf-mantra"
+  name: "Mantra (mantra.exe)"
 inventory94:
-  name: "invsf-emusic"
+  name: "Enga Musica (emusic.exe)"
 inventory95:
-  name: "invsf-beolamu"
+  name: "Beo La-Mulana (beolamu.exe)"
 inventory96:
-  name: "invsf-deathv"
+  name: "Death Village (deathv.exe)"
 inventory97:
-  name: "invsf-randc"
+  name: "Rose and Camellia (randc.exe)"
 inventory98:
-  name: "invsf-capstar"
+  name: "Space Capster II (capstar.exe)"
 inventory99:
-  name: "invsf-move"
+  name: "Lonely Moving House (move.exe)"
 inventory100:
-  name: "invsf-mekuri"
+  name: "Mekuri Master (mekuri.exe)"
 inventory101:
-  name: "invsf-bounce"
+  name: "Bounce Shot (bounce.exe)"
 inventory102:
-  name: "invsf-miracle"
+  name: "Miracle Witch (miracle.exe)"
 inventory103:
-  name: "invsf-mirai"
+  name: "Future Development Company (mirai.exe)"
 inventory104:
-  name: "invsf-lamulana"
+  name: "La-Mulana (lamulana.exe)"
 inventory105:
-  name: "weights"
+  name: "Weights"
 inventory106:
-  name: "coins"
+  name: "Coins"
 inventory107:
-  name: "ammo-shuriken"
+  name: "Shuriken Ammo"
 inventory108:
-  name: "ammo-roll-shuriken"
+  name: "Rolling Shuriken Ammo"
 inventory109:
-  name: "ammo-spear"
+  name: "Earth Spear Ammo"
 inventory110:
-  name: "ammo-flare"
+  name: "Flare Gun Ammo"
 inventory111:
-  name: "ammo-bomb"
+  name: "Bomb Ammo"
 inventory112:
-  name: "ammo-chakram"
+  name: "Chakram Ammo"
 inventory113:
-  name: "ammo-caltrop"
+  name: "Caltrop Ammo"
 inventory114:
-  name: "ammo-clip"
-inventory115:
-  name: "ammo-mystery-73"
+  name: "Pistol Clip Ammo"
 inventory116:
-  name: "ammo-bullet"
+  name: "Pistol Bullet Ammo"
