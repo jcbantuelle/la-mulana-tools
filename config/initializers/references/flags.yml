@@ -327,31 +327,31 @@ flags256:
 flags257:
   name: "pots-101-sur"
 flags258:
-  name: "guardian-kills"
-  notes: "counter"
+  name: "Number of Guardians Killed"
+  notes: "Value += 1 every time a boss is killed; 4-boss item checks this flag (for value = 4); set to 9 for transformed Shrine of the Mother"
 flags259:
-  name: "w-treasures"
+  name: "Treasures Obtained"
 flags260:
-  name: "w-diary"
+  name: "Diary Obtained"
 flags261:
-  name: "w-lamulanatalisman"
+  name: "Mulana Talisman Obtained"
 flags262:
-  name: "w-forbidden"
+  name: "Provocative Bathing Suit Obtained"
   notes: "2"
 flags264:
-  name: "w-medicine"
+  name: "Medicine (Yellow) Obtained"
   notes: "2"
 flags265:
-  name: "w-medicine-green"
+  name: "Medicine (Green) Obtained"
   notes: "2"
 flags266:
-  name: "w-medicine-red"
+  name: "Medicine (Red) Obtained"
   notes: "2"
 flags267:
-  name: "w-maternity"
+  name: "Maternity Statue Obtained"
 flags269:
-  name: "fobos"
-  notes: "1 2,3=ladder"
+  name: "Fobos Shrine of the Mother Ladder"
+  notes: "Value 0 -> 1 when talking to Fobos, spawns the philosopher ladder in Shrine of the Mother"
 flags270:
   name: "pots-10e-mau"
 flags271:
@@ -373,8 +373,8 @@ flags278:
 flags279:
   name: "pots-117-twi"
 flags280:
-  name: "fairypointsactive"
-  notes: "fairy points work and healing fairy in credits"
+  name: "Active Fairy Points"
+  notes: "Value 0 -> 1 when talking to The Fairy Queen after collecting Isis' Pendant, activates fairy points. Healing fairy in credits"
 flags281:
   name: "pots-119-end"
 flags282:
@@ -398,82 +398,82 @@ flags290:
 flags291:
   name: "pots-123-god"
 flags292:
-  name: "mantra-lamulana"
+  name: "Lamulana Mantra"
   notes: "1=can spawn 2=spawned 3=learnt 4=recited"
 flags293:
-  name: "mantra-abuto"
+  name: "Abuto Mantra"
   notes: "1=can spawn 2=spawned 3=learnt 4=recited"
 flags294:
-  name: "mantra-wedjet"
+  name: "Wedjet Mantra"
   notes: "1=can spawn 2=spawned 3=learnt 4=recited"
 flags295:
-  name: "mantra-bahrun"
+  name: "Bahrun Mantra"
   notes: "1=can spawn 2=spawned 3=learnt 4=recited"
 flags296:
-  name: "mantra-viy"
+  name: "Viy Mantra"
   notes: "1=can break statue 2=spawned 3=learnt 4=recited"
 flags297:
-  name: "mantra-mu"
+  name: "Mu Mantra"
   notes: "1=can spawn 2=spawned 3=learnt 4=recited"
 flags298:
-  name: "mantra-sabbat"
+  name: "Sabbat Mantra"
   notes: "1=can spawn 2=spawned 3=learnt 4=recited"
 flags299:
-  name: "mantra-marduk"
+  name: "Marduk Mantra"
   notes: "1=giltoriyo 2=spawned 3=learnt 4=recited"
 flags300:
-  name: "gui-puz-orb"
+  name: "Gate of Guidance Sacred Orb Puzzle"
   notes: "1"
 flags301:
-  name: "gui-puz-crucifix"
+  name: "Gate of Guidance Crucifix Puzzle"
   notes: "1=uncovered 3=solved"
 flags302:
-  name: "gui-puz-map"
+  name: "Gate of Guidance Map Puzzle"
   notes: "1"
 flags303:
-  name: "gui-dais-yagostr"
+  name: "Gate of Guidance Yagoo Map Street Dais"
   notes: "1"
 flags304:
-  name: "gui-puz-bossladder"
+  name: "Gate of Guidance Boss Ladder Puzzle"
   notes: "1=skeletons 2=blocks 3=solved"
 flags305:
-  name: "gui-puz-shuriken"
+  name: "Gate of Guidance Shuriken Puzzle"
   notes: "4"
 flags306:
   name: "gui-puz-coin3"
   notes: "1"
 flags307:
-  name: "gui-puz-ankh"
+  name: "Gate of Guidance Ankh Puzzle"
   notes: "1=block 2=left dais 3=right dais revealed 5=solved 6=killed amphisbaena"
 flags308:
-  name: "gui-elevator"
-  notes: "1,2=mouth 3,4=seen"
+  name: "Gate of Guidance Elevator"
+  notes: "Value 0 -> 1 when hitting the elevator block in the Guidance mouth (where Dracuet's door is), other increments via FlagTimer for animation"
 flags309:
-  name: "gui-puz-grail"
+  name: "Gate of Guidance Grail Puzzle"
   notes: "1"
 flags310:
-  name: "gui-puz-jewel"
+  name: "Gate of Guidance Ankh Jewel Puzzle"
   notes: "1=floodwindetc 2=dais 3=dais"
 flags311:
-  name: "gui-puz-pepper"
-  notes: "1,2"
+  name: "Gate of Guidance Treasures Puzzle"
+  notes: "Value 0 -> 1 when using Pepper on the statue, 1 > 2 when the chest is done animating to make it possible to open."
 flags312:
   name: "gui-coin-1"
 flags313:
-  name: "gui-puz-yagostr"
+  name: "Gate of Guidance Yagoo Street Puzzle"
   notes: "1"
 flags314:
-  name: "gui-ladder-ill"
+  name: "Gate of Guidance Ladder to Gate of Illusion"
   notes: "1,2"
 flags315:
   name: "gui-coin-2"
 flags316:
   name: "gui-coin-3"
 flags317:
-  name: "gui-ladder-shuriken"
+  name: "Gate of Guidance Shuriken Puzzle Ladder"
   notes: "2"
 flags318:
-  name: "gui-cover-jewel"
+  name: "Gate of Guidance Ankh Jewel Cover"
   notes: "2"
 flags319:
   name: "gui-ladder-jewel-dais"
@@ -488,49 +488,49 @@ flags323:
   name: "gui-puz-coin12"
   notes: "1"
 flags325:
-  name: "sur-ruins-opened"
-  notes: "2"
+  name: "Surface Ruins Opened"
+  notes: "Set in vanilla first conversation with Xelpud, changed in randomizer to use 0xad0. For some reason, warp graphics sometimes test this flag."
 flags326:
   name: "sur-wall-coin-3"
   notes: "1,2"
 flags327:
-  name: "sur-ruins-shortcut"
+  name: "Surface Ruins Shortcut Opened"
   notes: "1"
 flags328:
-  name: "sur-argus"
+  name: "Surface Argus Defeated"
   notes: "1"
 flags329:
-  name: "sur-shellhorn"
+  name: "Surface Shell Horn Puzzle"
   notes: "1"
 flags330:
-  name: "sur-puz-birthseal"
+  name: "Surface Birth Seal Puzzle"
   notes: "1"
 flags331:
-  name: "sur-wall-orb"
-  notes: "1"
+  name: "Surface Sacred Orb Puzzle"
+  notes: "Value 0 -> 1 when the wall/Hitbox is broken for the wall that has bats behind it, also used as the puzzle flag for the chest"
 flags332:
-  name: "sur-hidden-path"
-  notes: "1"
+  name: "Surface Hidden Path Opened"
+  notes: "Value 0 -> 1 by Lemeza detector near the transitions into the Surface underpath, allowing you to navigate the area properly. One of the two detectors is added by randomizer; the other is vanilla."
 flags333:
   name: "sur-coin-1"
-  notes: "2"
+  notes: "In vanilla, this is for opening the seal and opening the chest. In randomizer, the chest uses a different world flag, but this remains as the puzzle flag."
 flags334:
   name: "sur-wall-coin-2"
   notes: "2"
 flags335:
-  name: "sur-deathv"
+  name: "Surface Death Village (deathv.exe) Puzzle"
   notes: "2"
 flags336:
-  name: "sur-wall-mekuri"
+  name: "Surface Mekuri Master (mekuri.exe) Puzzle"
   notes: "1"
 flags337:
-  name: "sur-wall-bats"
-  notes: "2"
+  name: "Surface Bats in Wall"
+  notes: "Value 0 -> 1 when the wall/Hitbox is broken for the wall that has bats behind it, 1 > 2 as the wall cover despawns and bats spawn"
 flags338:
-  name: "sur-gate-exposed"
+  name: "Surface Gate Exposed"
   notes: "1"
 flags339:
-  name: "sur-gate-open"
+  name: "Surface Gate Open"
   notes: "1"
 flags340:
   name: "sur-wall-ruins"
