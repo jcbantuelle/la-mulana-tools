@@ -4,7 +4,7 @@
 <button id="send">1</button>
 
 <script type="text/javascript">
-  const socket = new WebSocket('ws://<%= request.host %>/cable');
+  const socket = new WebSocket('wss://<%= request.host %>/cable');
 
   socket.addEventListener('open', function (event) {
     const msg = {
