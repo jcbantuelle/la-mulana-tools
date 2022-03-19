@@ -1,0 +1,43 @@
+<div id="info">
+</div>
+
+<button id="send">1</button>
+
+<script type="text/javascript">
+  const socket = new WebSocket('ws://localhost/cable');
+
+  socket.addEventListener('open', function (event) {
+    const msg = {
+      command: 'subscribe',
+      identifier: JSON.stringify({
+        id: '15',
+        channel: 'MultiworldSyncChannel'
+      })
+    }
+    socket.send(JSON.stringify(msg))
+  })
+
+  socket.addEventListener('message', function (event) {
+    response = JSON.parse(event.data)
+    if (response['message']) {
+      $('#info').append(response['message']['body'])
+    }
+  })
+
+  $('#send').click(function() {
+    counter = parseInt($(this).html())
+    const msg = {
+      command: 'message',
+      identifier: JSON.stringify({
+        id: '15',
+        channel: 'MultiworldSyncChannel'
+      }),
+      data: JSON.stringify({
+        body: 'test'+counter
+      })
+    }
+    socket.send(JSON.stringify(msg))
+    counter += 1
+    $(this).html(counter)
+  })
+</script>

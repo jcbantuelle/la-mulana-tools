@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post 'save_file/download'
 
   get 'reference', to: 'reference#index'
+
+  get 'websocket_test', to: 'websocket_test#index'
 end
