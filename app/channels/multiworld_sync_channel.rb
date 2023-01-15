@@ -5,8 +5,6 @@ class MultiworldSyncChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    message = data['body']
-    message[0] = 'w'
-    ActionCable.server.broadcast("multiworld_sync_#{params[:id]}", {body: message})
+    ActionCable.server.broadcast("multiworld_sync_#{data['player_id']}", {item_id: data['item_id'], player_id: params[:id]})
   end
 end
