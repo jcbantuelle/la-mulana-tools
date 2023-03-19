@@ -25,9 +25,11 @@ class Room < BinData::Record
   int8  :use_boss_graphics
   int8  :layers_length, value: -> { layers.length }
   int8  :primary_layer_index
-  int16 :hit_mask_width
-  int16 :hit_mask_height
-  array :hit_mask, type: :int8, initial_length: -> { hit_mask_width * hit_mask_height }
+  int16 :hit_mask_width, value: -> { hit_mask.length }
+  int16 :hit_mask_height, value: -> { hit_mask[0].length }
+  array :hit_mask, initial_length: :hit_mask_width do
+    array :hit_mask_col, type: :int8, initial_length: :hit_mask_height
+  end
   array :layers, type: :layer, initial_length: :layers_length
 end
 
