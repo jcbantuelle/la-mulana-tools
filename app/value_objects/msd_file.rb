@@ -21,7 +21,7 @@ class Layer < BinData::Record
   end
 end
 
-class Room < BinData::Record
+class MsdRoom < BinData::Record
   endian :big
 
   int8  :use_boss_graphics
@@ -57,6 +57,6 @@ class MsdFile < BinData::Record
   int8  :graphics_file_id
   int8  :unknown
   int8  :rooms_length, value: -> { rooms.length }
-  array :rooms, type: :room, initial_length: :rooms_length
+  array :rooms, type: :msd_room, initial_length: :rooms_length
   string :padding, length: -> { 32 - (padding.rel_offset % 32) }
 end
