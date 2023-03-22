@@ -1,19 +1,31 @@
-load 'app/value_objects/msd_file.rb'
-
-def load_room_data
-  room = $rooms[$room_index]
-  primary_layer = room[:layers][room[:primary_layer_index]]
-  $screen_count = (primary_layer[:layer_width] / 32) * (primary_layer[:layer_height] / 24)
-end
-
-def load_msd_file
-  $msd_index = 0 if $msd_index.nil?
-  msd_file = File.open("/app/vendor/binary_files/v1_0_0_1/map#{$msd_index.to_s.rjust(2, '0')}.msd")
-  $rooms = MsdFile.read(msd_file)[:rooms]
-  $room_index = 0
-  $rooms_length = $rooms.length
-  load_room_data
-end
+ZONES = [
+  [2, 2, 2, 2, 3, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [3, 2, 2, 1, 3, 3, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 1, 1, 3, 2, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 3, 2, 1, 6, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [3, 1, 2, 5, 1, 2, 2, 2, 2, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+  [2, 2, 3, 3, 1, 2, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 4, 4, 4, 4, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 3, 1, 2, 2, 1, 3, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [3, 2, 2, 1, 4, 2, 1, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 1, 4, 2, 2, 1, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 3, 2, 2, 2, 4, 3, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [3, 2, 2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0],
+  [2, 3, 2, 2, 2],
+  [2, 3, 2, 2, 2],
+  [2, 0],
+  [3, 2, 2, 1, 3, 3, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [2, 1, 2, 0, 0],
+  [5, 5, 5, 5, 0]
+]
 
 class Operation < BinData::Record
   endian :big
@@ -76,10 +88,7 @@ class Room < BinData::Record
 
   int16 :objects_length, value: -> { objects.length }
   array :objects, type: :rcd_object_without_position, initial_length: :objects_length
-  array :screens, type: :screen, initial_length: -> {
-    load_msd_file if $rooms.nil?
-    $screen_count
-  }
+  array :screens, type: :screen, initial_length: -> { ZONES[room_index][index] }
 end
 
 class Zone < BinData::Record
@@ -89,21 +98,13 @@ class Zone < BinData::Record
   int16 :objects_length, value: -> { objects.length }
   array :zone_name, type: :int8, initial_length: :zone_name_length
   array :objects, type: :rcd_object_without_position, initial_length: :objects_length
-  array :rooms, type: :room, read_until: -> {
-    $room_index += 1
-    load_room_data
-    index == $rooms_length - 1
-  }
+  array :rooms, type: :room, initial_length: -> { ZONES[index].length }, room_index: -> { index }
 end
 
 class RcdFile < BinData::Record
   endian  :big
 
   int16 :unknown
-  array :zones, type: :zone, read_until: -> {
-    $msd_index += 1
-    load_msd_file unless $msd_index > 25
-    index == 25
-  }
+  array :zones, type: :zone, initial_length: -> { ZONES.length }
   string :padding, length: -> { 32 - (padding.rel_offset % 32) }
 end
