@@ -14,8 +14,10 @@ class Layer < BinData::Record
   int16 :layer_width
   int16 :layer_height
   int8  :sublayers_length, value: -> { sublayers.length }
-  array :sublayers, type: :sublayer, initial_length: -> { sublayers_length } do
-    array :tiles, type: :tile, initial_length: -> { layer_width * layer_height }
+  array :sublayers, initial_length: :sublayers_length do
+    array :tiles, initial_length: :layer_height do
+      array :tile_col, type: :tile, initial_length: :layer_width
+    end
   end
 end
 
@@ -25,10 +27,10 @@ class Room < BinData::Record
   int8  :use_boss_graphics
   int8  :layers_length, value: -> { layers.length }
   int8  :primary_layer_index
-  int16 :hit_mask_width, value: -> { hit_mask.length }
-  int16 :hit_mask_height, value: -> { hit_mask[0].length }
-  array :hit_mask, initial_length: :hit_mask_width do
-    array :hit_mask_col, type: :int8, initial_length: :hit_mask_height
+  int16 :hit_mask_width, value: -> { hit_mask[0].length }
+  int16 :hit_mask_height, value: -> { hit_mask.length }
+  array :hit_mask, initial_length: :hit_mask_height do
+    array :hit_mask_col, type: :int8, initial_length: :hit_mask_width
   end
   array :layers, type: :layer, initial_length: :layers_length
 end
@@ -36,8 +38,8 @@ end
 class AnimatedTileId < BinData::Record
   endian :big
 
-  bit5  :wait_frame_count
   bit11 :tile_coords
+  bit5  :wait_frame_count
 end
 
 class AnimatedTile < BinData::Record
