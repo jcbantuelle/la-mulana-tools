@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root controller: 'save_file', action: 'edit'
   devise_for :users
+  root controller: 'home', action: 'index'
 
   get 'save_file/edit'
   post 'save_file/update'
