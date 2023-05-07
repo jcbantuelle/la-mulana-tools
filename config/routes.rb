@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'reference', to: 'reference#index'
 
+  get 'multiworld', to: 'multiworld#index'
+
   get 'websocket_test', to: 'websocket_test#index'
 end
