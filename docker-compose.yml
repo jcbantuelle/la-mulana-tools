@@ -20,5 +20,12 @@ services:
             - data:/var/lib/postgresql/data
         env_file: ./docker/postgres/config
 
+    mailhog:
+        image: mailhog/mailhog
+        ports:
+          - 8025:8025
+        expose:
+          - 1025
+
 volumes:
     data:
