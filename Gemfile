@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'bindata', '~> 2.4.10'
+gem 'pg', '~> 1.5.3'
 gem 'pry'
 
 group :development, :test do
