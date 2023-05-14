@@ -1,8 +1,8 @@
 <br />
 <h1>Upload Your Save File</h1>
-<% flash.each do |type, msg| %>
-  <div class="<%= type %> <%= type %>-danger">
-    <%= msg %>
+<% unless @errors.blank? %>
+  <div class="alert alert-danger">
+    <%= @errors.map{|error| "<span>&bull; #{error}</span>"}.join('<br />').html_safe %>
   </div>
 <% end %>
 <%= form_with url: '/save_file/update', method: :post, multipart: true do |form| %>
