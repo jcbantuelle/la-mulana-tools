@@ -1,4 +1,4 @@
-class MultiworldController < ApplicationController
+class MultiworldsController < ApplicationController
   before_action :authenticate_user!
 
   def index
