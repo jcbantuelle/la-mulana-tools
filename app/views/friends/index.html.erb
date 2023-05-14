@@ -1,0 +1,24 @@
+<div>
+  <br />
+  <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-success' %>
+  <br />
+  <br />
+  <% if @friends.empty? %>
+    <p class="h5">It looks like you haven't invited any friends yet.</p>
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @friends.each do |friend| %>
+          <tr>
+            <td><%= friend.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
