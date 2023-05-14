@@ -16,9 +16,9 @@
     <%= render 'layouts/nav' %>
     <div class="container-fluid">
       <% if notice.present? %>
-        <p class="notice"><%= notice %></p>
+        <div class="alert alert-primary"><%= notice %></div>
       <% elsif alert.present? %>
-        <p class="alert"><%= alert %></p>
+        <div class="alert alert-danger"><%= alert %></div>
       <% end %>
       <%= yield %>
     </div>
