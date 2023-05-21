@@ -3,7 +3,9 @@ class FriendsController < ApplicationController
 
   def index
     @invites = Friendship.invites(current_user.id)
-    @friends = current_user.friendships.accepted
+    @friends = Friendship.friends(current_user.id).map{ |friendship|
+      Friend.new(current_user, friendship)
+    }
   end
 
   def create
@@ -14,6 +16,17 @@ class FriendsController < ApplicationController
       @errors = friend_form.errors
       render 'new'
     end
+  end
+
+  def update
+    friendship = Friendship.find(params[:id])
+    friendship.update(accepted: true)
+    redirect_to(friends_path, notice: "Invite from #{friendship.user.email} has been accepted")
+  end
+
+  def destroy
+    friendship = Friendship.destroy(params[:id])
+    redirect_to(friends_path, notice: "Invite from #{friendship.user.email} has been declined")
   end
 
   def friend_params

@@ -1,6 +1,6 @@
 <div>
   <br />
-  <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-success' %>
+  <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-primary' %>
   <br />
   <br />
   <% unless @invites.empty? %>
@@ -9,12 +9,17 @@
       <thead>
         <tr>
           <th>From</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @invites.each do |friendship| %>
           <tr>
             <td><%= friendship.user.email %></td>
+            <td>
+              <%= link_to 'Accept', friend_path(friendship), method: :patch, class: 'btn btn-sm btn-success' %>
+              <%= link_to 'Decline', friend_path(friendship), method: :delete, class: 'btn btn-sm btn-danger' %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -23,19 +28,21 @@
   <br />
   <br />
   <% if @friends.empty? %>
-    <p class="h5">It looks like you haven't invited any friends yet.</p>
+    <p class="h5">Your Friends List is currently empty.</p>
   <% else %>
-    <h2>Friends</h2>
+    <h2>Friends List</h2>
     <table>
       <thead>
         <tr>
           <th>Email</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @friends.each do |friend| %>
           <tr>
             <td><%= friend.email %></td>
+            <td><%= link_to 'Remove', friend_path(friend.friendship), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
         <% end %>
       </tbody>
