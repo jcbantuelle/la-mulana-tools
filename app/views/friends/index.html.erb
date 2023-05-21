@@ -1,9 +1,9 @@
 <div>
   <br />
   <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-primary' %>
-  <br />
-  <br />
   <% unless @invites.empty? %>
+    <br />
+    <br />
     <h2>Pending Invites</h2>
     <table>
       <thead>
