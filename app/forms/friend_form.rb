@@ -1,11 +1,22 @@
 class FriendForm < ApplicationController
 
-  attr_reader :errors
+  attr_reader :errors, :email
 
   def initialize(current_user, email)
     @current_user = current_user
     @email = email
     @errors = []
+  end
+
+  def save
+    if validate
+      Friendship.create(
+        user_id: @current_user.id,
+        friend_id: @friend.id
+      )
+    else
+      false
+    end
   end
 
   def validate
@@ -23,7 +34,7 @@ class FriendForm < ApplicationController
         @errors << "#{@email} does not exist"
       end
     end
-    return @errors.empty?
+    @errors.empty?
   end
 
 end

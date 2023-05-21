@@ -3,9 +3,29 @@
   <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-success' %>
   <br />
   <br />
+  <% unless @invites.empty? %>
+    <h2>Pending Invites</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>From</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invites.each do |friendship| %>
+          <tr>
+            <td><%= friendship.user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br />
+  <br />
   <% if @friends.empty? %>
     <p class="h5">It looks like you haven't invited any friends yet.</p>
   <% else %>
+    <h2>Friends</h2>
     <table>
       <thead>
         <tr>
