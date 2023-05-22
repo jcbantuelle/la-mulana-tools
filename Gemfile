@@ -17,6 +17,7 @@ gem 'bindata', '~> 2.4.10'
 gem 'devise', '~> 4.9.2'
 gem 'pg', '~> 1.5.3'
 gem 'pry'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'pry-remote'
