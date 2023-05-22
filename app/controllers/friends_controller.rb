@@ -9,9 +9,9 @@ class FriendsController < ApplicationController
   end
 
   def create
-    friend_form = FriendForm.new(current_user, friend_params[:email])
+    friend_form = FriendForm.new(current_user, friend_params[:friend_code])
     if friend_form.save
-      redirect_to(friends_path, notice: "#{friend_form.email} has been invited") and return
+      redirect_to(friends_path, notice: "#{friend_form.friend.email} has been invited") and return
     else
       @errors = friend_form.errors
       render 'new'
@@ -30,6 +30,6 @@ class FriendsController < ApplicationController
   end
 
   def friend_params
-    params.permit(:email)
+    params.permit(:friend_code)
   end
 end

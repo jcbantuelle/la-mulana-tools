@@ -1,13 +1,13 @@
 class Friend
 
-  attr_reader :email, :friendship
+  attr_reader :username, :friendship
 
   def initialize(current_user, friendship)
     @friendship = friendship
     if @friendship.user_id == current_user.id
-      @email = @friendship.friend.email
+      @username = @friendship.friend.username
     else
-      @email = @friendship.user.email
+      @username = @friendship.user.username
     end
   end
 end

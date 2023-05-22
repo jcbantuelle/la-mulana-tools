@@ -1,5 +1,6 @@
 <div>
   <br />
+  <p>Friend Code: <%= current_user.friend_code %></p>
   <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-primary' %>
   <% unless @invites.empty? %>
     <br />
@@ -15,7 +16,7 @@
       <tbody>
         <% @invites.each do |friendship| %>
           <tr>
-            <td><%= friendship.user.email %></td>
+            <td><%= friendship.user.username %></td>
             <td>
               <%= link_to 'Accept', friend_path(friendship), method: :patch, class: 'btn btn-sm btn-success' %>
               <%= link_to 'Decline', friend_path(friendship), method: :delete, class: 'btn btn-sm btn-danger' %>
@@ -41,7 +42,7 @@
       <tbody>
         <% @friends.each do |friend| %>
           <tr>
-            <td><%= friend.email %></td>
+            <td><%= friend.username %></td>
             <td><%= link_to 'Remove', friend_path(friend.friendship), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
         <% end %>
