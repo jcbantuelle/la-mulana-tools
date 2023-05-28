@@ -14,6 +14,8 @@ import Bootstrap from "../src/bootstrap"
 global.bootstrap = Bootstrap
 import Lodash from "../src/lodash"
 global._ = Lodash
+import Handlebars from "../src/handlebars"
+global.handlebars = Handlebars
 
 Rails.start()
 Turbolinks.start()
