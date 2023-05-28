@@ -12,8 +12,8 @@ global.$ = JQuery
 global.jQuery = JQuery
 import Bootstrap from "../src/bootstrap"
 global.bootstrap = Bootstrap
-import Underscore from "../src/underscore"
-global._ = Underscore
+import Lodash from "../src/lodash"
+global._ = Lodash
 
 Rails.start()
 Turbolinks.start()
