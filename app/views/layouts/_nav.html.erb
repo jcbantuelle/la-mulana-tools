@@ -7,19 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link <%= 'active' if request.fullpath.include?('/save_file/') %>" href="/save_file/edit">Save File Editor</a>
+          <%= link_to 'Save File Editor', save_file_edit_path, class: "nav-link #{active_class('save_file')}" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link <%= 'active' if request.fullpath == '/reference' %>" href="/reference">Reference Guide</a>
+          <%= link_to 'Reference Guide', reference_path, class: "nav-link #{active_class('reference')}" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link <%= 'active' if request.fullpath == '/multiworlds' %>" href="/multiworlds">Multiworld</a>
+          <%= link_to 'Multiworld', multiworlds_path, class: "nav-link #{active_class('multiworlds')}" %>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link <%= 'active' if request.fullpath == '/friends' %>" href="/friends">Friends</a>
+            <%= link_to 'Friends', friends_path, class: "nav-link #{active_class('friends')}" %>
           </li>
           <li class="nav-item">
             <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link active btn btn-sm btn-primary' %>
