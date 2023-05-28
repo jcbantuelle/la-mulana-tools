@@ -76,3 +76,6 @@ yarn-debug.log*
 
 /docs
 /vendor/binary_files
+*.rcd
+test.rb
+todo.md

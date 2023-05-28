@@ -1,20 +1,22 @@
 <br />
-<h1>Upload Your Save File</h1>
+<h1>Invite a Friend</h1>
 <% unless @errors.blank? %>
   <div class="alert alert-danger">
     <%= @errors.map{|error| "<span>&bull; #{error}</span>"}.join('<br />').html_safe %>
   </div>
 <% end %>
-<%= form_with url: '/save_file/update', method: :post, multipart: true do |form| %>
+<%= form_with url: '/friends', method: :post do |form| %>
   <div class="row">
     <div class="col-3">
-      <%= form.file_field :save_file, class:  "form-control" %>
+      <%= form.label :friend_code %>
+      <br />
+      <%= form.text_field :friend_code, class:  "form-control" %>
     </div>
   </div>
   <br />
   <div class="row">
     <div class="col-3">
-      <%= form.submit "Load File", class: "btn btn-primary" %>
+      <%= form.submit "Invite Friend", class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

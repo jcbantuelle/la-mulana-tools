@@ -1,0 +1,26 @@
+<div>
+  <br />
+  <%= link_to 'Create Game', new_multiworld_path, class: 'btn btn-success' %>
+  <br />
+  <br />
+  <% if @games.empty? %>
+    <p class="h5">It looks like you don't have any games associated with your account yet.</p>
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>Game ID</th>
+          <th>Players</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @games.each do |game| %>
+          <tr>
+            <td><a href="/multiworld/<%= game.id %>"><%= game.uid %></a></td>
+            <td><%= game.users.map(&:username).join(', ') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

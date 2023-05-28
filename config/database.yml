@@ -1,0 +1,15 @@
+development: &default
+  adapter: postgresql
+  host: postgres
+  encoding: unicode
+  database: la_mulana_development
+  pool: 5
+  username: docker
+  password: docker
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+
+test:
+  <<: *default
+  database: la_mulana_test

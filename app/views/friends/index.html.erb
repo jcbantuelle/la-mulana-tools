@@ -1,0 +1,52 @@
+<div>
+  <br />
+  <p>Friend Code: <%= current_user.friend_code %></p>
+  <%= link_to 'Add Friend', new_friend_path, class: 'btn btn-primary' %>
+  <% unless @invites.empty? %>
+    <br />
+    <br />
+    <h2>Pending Invites</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>From</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invites.each do |friendship| %>
+          <tr>
+            <td><%= friendship.user.username %></td>
+            <td>
+              <%= link_to 'Accept', friend_path(friendship), method: :patch, class: 'btn btn-sm btn-success' %>
+              <%= link_to 'Decline', friend_path(friendship), method: :delete, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br />
+  <br />
+  <% if @friends.empty? %>
+    <p class="h5">Your Friends List is currently empty.</p>
+  <% else %>
+    <h2>Friends List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @friends.each do |friend| %>
+          <tr>
+            <td><%= friend.username %></td>
+            <td><%= link_to 'Remove', friend_path(friend.friendship), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
