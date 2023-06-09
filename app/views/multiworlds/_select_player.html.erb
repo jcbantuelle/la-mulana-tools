@@ -1,0 +1,10 @@
+<div class="player-selection col" id="player-container-{{number}}">
+  <h3>Player #{{number}}</strong>
+  <select id="player-select-{{number}}">
+    <option value="">- Select Friend -</option>
+    <% @friends.each do |friend| %>
+      <option value="<%= friend.id %>"><%= friend.username %></option>
+    <% end %>
+  </select>
+  <button data-player-number="{{number}}" type="button" class="player-select-button btn btn-primary btn-sm">Add</button>
+</div>

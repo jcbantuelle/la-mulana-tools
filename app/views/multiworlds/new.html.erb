@@ -19,23 +19,71 @@
   <div id="players-container" class="d-none row">
     <div id="players">
     </div>
-    <div class="col-3">
+    <div id="select-players">
+    </div>
+    <div id="submit-game" class="col-3 d-none">
       <%= form.submit "Create Game", class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
 
 <script type="text/javascript">
+  var player_template = handlebars.compile(`<%= render 'player' %>`)
+  var select_player_template = handlebars.compile(`<%= render 'select_player' %>`)
+
   $('#player-count-next').on('click', function(event) {
-    const player_count = $('#player_count').val()
-    if (_.isEmpty(player_count) || _.toInteger(player_count) < 2) {
+    const player_count = _.toInteger($('#player_count').val())
+    if (player_count < 2) {
       alert('You must have at least 2 players to continue')
     } else {
-      let player_template = handlebars.compile(`<%= render 'player' %>`)
-      let player_block = $('#players')
-      player_block.append(player_template({name: 'Justin'}))
+      $('#player-count').text(player_count)
+
+      add_player({
+        number: 1,
+        name: '<%= current_user.username %>',
+        player_id: <%= current_user.id %>
+      })
+
+      _.times(player_count-1, function(index) {
+        add_select_player({number: index+2})
+      })
+      $('.player-select-button').on('click', submit_player)
+
       $('#player-count-container').hide()
       $('#players-container').removeClass('d-none')
     }
   })
+
+  function submit_player(event) {
+    player_number = $(event.target).data('player-number')
+    player_select = $('#player-select-'+player_number)
+    player_name = player_select.children(':selected').first().text()
+    player_id = player_select.val()
+    if (player_id == '') {
+      alert('You must select a player')
+    } else {
+      $('#player-container-'+player_number).remove()
+      add_player({
+        number: player_number,
+        name: player_name,
+        player_id: player_id
+      })
+      player_selections = $('.player-selection')
+      if (player_selections.length == 0) {
+        $('#submit-game').removeClass('d-none')
+      } else {
+        player_selections.each(function(i, elem) {
+          $(elem).find('option[value="'+player_id+'"]').first().remove()
+        })
+      }
+    }
+  }
+
+  function add_player(player_info) {
+    $('#players').append(player_template(player_info))
+  }
+
+  function add_select_player(player_info) {
+    $('#select-players').append(select_player_template(player_info))
+  }
 </script>

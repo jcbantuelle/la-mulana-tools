@@ -6,5 +6,8 @@ class MultiworldsController < ApplicationController
   end
 
   def new
+    @friends = Friendship.friends(current_user.id).map{ |friendship|
+      Friend.new(current_user, friendship)
+    }
   end
 end
