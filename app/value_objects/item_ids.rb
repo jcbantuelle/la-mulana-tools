@@ -38,3 +38,6 @@ ITEM_IDS = [
   23,  # Magatama Jewel
   104  # lamulana.exe
 ]
+
+class ItemIds
+end

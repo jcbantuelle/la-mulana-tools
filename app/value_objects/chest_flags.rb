@@ -71,3 +71,6 @@ CHEST_FLAGS = [
   208, # Dimensional Corridor, Sacred Orb
   245  # Gate of Time Surface, lamulana.exe
 ]
+
+class ChestFlags
+end
