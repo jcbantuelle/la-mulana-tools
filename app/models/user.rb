@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, :confirmable, :lockable
 
-  has_and_belongs_to_many :games
+  has_many :players
+  has_many :games, through: :players
   has_many :friendships
   has_many :friends, through: :friendships
 
