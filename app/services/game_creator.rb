@@ -5,7 +5,7 @@ class GameCreator
   attr_reader :players
 
   def initialize(user_ids)
-    @players = user_ids.map(&:to_i).each_with_index.map do |user_id, index|
+    @players = user_ids.each_with_index.map do |user_id, index|
       Player.new(user_id: user_id, player_id: index+1)
     end
   end
@@ -25,15 +25,24 @@ class GameCreator
 
   def generate_item_placement
     unshuffled_items = []
+    @game_state = {players: {}}
     @players.each do |player|
+      @game_state[:players][player.player_id] = {
+        obtained_items: {},
+        items: {}
+      }
       unshuffled_items += Items::IDS.map{ |item_id|
         [item_id, player.player_id]
       }
     end
     shuffled_items = unshuffled_items.shuffle
-    @game_state = {}
     @players.each do |player|
-      @game_state[player.player_id] = unshuffled_items.slice!(0, Items::IDS.length)
+      shuffled_items.slice!(0, Items::IDS.length).each do |item|
+        @game_state[:players][player.player_id][:items][item[0]] = {
+          obtained: false,
+          owner: item[1]
+        }
+      end
     end
   end
 end
