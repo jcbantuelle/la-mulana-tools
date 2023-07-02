@@ -12,7 +12,7 @@ class GameCreator
 
   def create
     generate_item_placement
-    @game = Game.new(users: @players, state: @placed_items, uid: Digest::SHA512.hexdigest(@placed_items.to_s))
+    @game = Game.new(users: @players, state: @game_state, uid: Digest::SHA512.hexdigest(@game_state.to_s))
     @game.save
     @game
   end
@@ -26,14 +26,14 @@ class GameCreator
   def generate_item_placement
     unshuffled_items = []
     @players.length.times do |i|
-      unshuffled_items += ITEM_IDS.map{ |item_id|
+      unshuffled_items += Items::IDS.map{ |item_id|
         [item_id, i]
       }
     end
     shuffled_items = unshuffled_items.shuffle
-    @placed_items = {}
+    @game_state = {}
     @players.length.times do |i|
-      @placed_items[i] = unshuffled_items.slice!(0, ITEM_IDS.length)
+      @game_state[i] = unshuffled_items.slice!(0, Items::IDS.length)
     end
   end
 end
