@@ -29,7 +29,7 @@ class GameCreator
     @players.each do |player|
       @game_state[:players][player.player_id] = {
         obtained_items: {},
-        items: {}
+        items: []
       }
       unshuffled_items += Items::IDS.map{ |item_id|
         [item_id, player.player_id]
@@ -38,7 +38,8 @@ class GameCreator
     shuffled_items = unshuffled_items.shuffle
     @players.each do |player|
       shuffled_items.slice!(0, Items::IDS.length).each do |item|
-        @game_state[:players][player.player_id][:items][item[0]] = {
+        @game_state[:players][player.player_id][:items] << {
+          item_id: item[0],
           obtained: false,
           owner: item[1]
         }
