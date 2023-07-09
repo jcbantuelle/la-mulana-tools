@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'bindata', '~> 2.4.10'
+gem 'rubyzip', '~> 2.3.2'
 gem 'devise', '~> 4.9.2'
 gem 'pg', '~> 1.5.3'
 gem 'pry'
