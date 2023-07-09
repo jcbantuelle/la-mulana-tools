@@ -16,7 +16,7 @@
       <tbody>
         <% @games.each do |game| %>
           <tr>
-            <td><a href="/multiworld/<%= game.id %>"><%= game.uid %></a></td>
+            <td><%= link_to game.uid, multiworld_path(game.id) %></td>
             <td><%= game.users.map(&:email).join(', ') %></td>
           </tr>
         <% end %>
