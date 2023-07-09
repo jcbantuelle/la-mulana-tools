@@ -24,6 +24,14 @@ class MultiworldsController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.zip {
+        player = @game.find_player(current_user.id)
+        game_downloader = GameDownloader.new(@game, player)
+        send_data game_downloader.download, filename: 'test.zip'
+      }
+    end
   end
 
   private

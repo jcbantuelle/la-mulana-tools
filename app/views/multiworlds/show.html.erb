@@ -1,3 +1,1 @@
-Game ID:
-
-<%= @game.id %>
+<%= link_to "Download Game Files", multiworld_path(@game.id, format: :zip), class: 'btn btn-success' %>
