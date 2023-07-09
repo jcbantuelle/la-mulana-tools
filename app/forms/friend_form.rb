@@ -28,7 +28,7 @@ class FriendForm < ApplicationController
         if @current_user.id == @friend.id
           @errors << "You are unable to add yourself as a friend"
         elsif @current_user.friends.map(&:id).include?(@friend.id)
-          @errors << "#{@friend.email} has already been invited"
+          @errors << "You have already invited this person"
         end
       else
         @errors << "Friend Code does not match an existing user"

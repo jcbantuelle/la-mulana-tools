@@ -17,7 +17,7 @@
         <% @games.each do |game| %>
           <tr>
             <td><%= link_to game.uid, multiworld_path(game.id) %></td>
-            <td><%= game.users.map(&:email).join(', ') %></td>
+            <td><%= game.users.map(&:username).join(', ') %></td>
           </tr>
         <% end %>
       </tbody>

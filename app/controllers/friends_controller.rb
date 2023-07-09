@@ -11,7 +11,7 @@ class FriendsController < ApplicationController
   def create
     friend_form = FriendForm.new(current_user, friend_params[:friend_code])
     if friend_form.save
-      redirect_to(friends_path, notice: "#{friend_form.friend.email} has been invited") and return
+      redirect_to(friends_path, notice: "#{friend_form.friend.username} has been invited") and return
     else
       @errors = friend_form.errors
       render 'new'
@@ -21,12 +21,12 @@ class FriendsController < ApplicationController
   def update
     friendship = Friendship.find(params[:id])
     friendship.update(accepted: true)
-    redirect_to(friends_path, notice: "Invite from #{friendship.user.email} has been accepted")
+    redirect_to(friends_path, notice: "Invite from #{friendship.user.username} has been accepted")
   end
 
   def destroy
     friendship = Friendship.destroy(params[:id])
-    redirect_to(friends_path, notice: "Invite from #{friendship.user.email} has been declined")
+    redirect_to(friends_path, notice: "Invite from #{friendship.user.username} has been declined")
   end
 
   def friend_params
