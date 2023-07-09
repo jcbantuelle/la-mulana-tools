@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'perfect_toml', '~> 0.9.0'
 gem 'bindata', '~> 2.4.10'
 gem 'rubyzip', '~> 2.3.2'
 gem 'devise', '~> 4.9.2'
