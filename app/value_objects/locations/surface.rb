@@ -1,4 +1,4 @@
-module Location::Surface
+module Locations::Surface
 
   SURFACE_MAIN = {
     connections: [
