@@ -1,3 +1,5 @@
+require_relative '../../lib/bindata/save_file'
+
 class SaveFileController < ApplicationController
   def edit
   end
