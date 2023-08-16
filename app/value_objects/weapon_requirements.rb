@@ -30,4 +30,8 @@ class WeaponRequirements
     world.checks[:pistol]
   end
 
+  def self.empowered_keysword(world)
+    world.checks[:keysword] && (world.player[:options][:skip_mantras] || world.mantras_recited)
+  end
+
 end

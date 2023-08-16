@@ -6,6 +6,8 @@ class World
     @nodes = Nodes.new
     @checks = {}
     @player = player
+    @player[:options] = {}
+    @player[:options][:difficulty] = 'normal'
     @accessible_world = @nodes[:surface_main]
     @accessible_world[:randomized_contents].each do |content|
       if content[:chest]
@@ -37,5 +39,14 @@ class World
   end
 
   def update(updates)
+  end
+
+  def mantras_recited
+    # Add Mantra reqs
+  end
+
+  def hp_check(hp)
+    hp -= 1 if @checks[:move] && @checks[:randc]
+    hp >= @checks[:hp]
   end
 end
