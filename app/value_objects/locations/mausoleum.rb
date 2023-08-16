@@ -1,4 +1,4 @@
-module Locations::Mausoleum
+class Locations::Mausoleum
 
   MAUSOLEUM = {
     connections: [

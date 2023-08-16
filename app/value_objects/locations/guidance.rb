@@ -1,4 +1,4 @@
-module Locations::Guidance
+class Locations::Guidance
 
   GUIDANCE_MAIN = {
     connections: [
