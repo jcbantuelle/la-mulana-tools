@@ -35,15 +35,20 @@ class GameCreator
         [item_id, player.player_id]
       }
     end
-    shuffled_items = unshuffled_items.shuffle
-    @players.each do |player|
-      shuffled_items.slice!(0, Items::IDS.length).each do |item|
-        @game_state[:players][player.player_id][:items] << {
-          item_id: item[0],
-          obtained: false,
-          owner: item[1]
-        }
+    loop do
+      shuffled_items = unshuffled_items.shuffle
+      @players.each do |player|
+        @game_state[:players][player.player_id][:items] = []
+        shuffled_items.slice!(0, Items::IDS.length).each do |item|
+          @game_state[:players][player.player_id][:items] << {
+            item_id: item[0],
+            obtained: false,
+            owner: item[1]
+          }
+        end
       end
+      game_validator = GameValidator.new(@game_state)
+      break if game_validator.valid?
     end
   end
 end
