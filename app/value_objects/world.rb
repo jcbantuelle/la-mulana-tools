@@ -1,5 +1,7 @@
 class World
 
+  attr_reader :checks, :player
+
   def initialize(player)
     @nodes = Nodes.new
     @checks = {}
